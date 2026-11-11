@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B1220" />
+  <meta name="description" content="دليل تفاعلي لبناء قمع الجمهور، توزيع ميزانية إعلانات Meta، وخطة تنفيذ عملية لمدة 30 يوماً." />
+  <title>قمع الجمهور الاحترافي | Audience Funnel Masterplan — الإصدار المحسّن</title>
+  <style>
+    :root{
+      --bg:#0F172A;--panel:#172235;--panel-2:#1E293B;--panel-3:#243247;--line:rgba(148,163,184,.16);
+      --text:#F8FAFC;--muted:#9AA9BC;--gold:#F59E0B;--blue:#2563EB;--orange:#F97316;--red:#EF4444;
+      --green:#10B981;--purple:#7C3AED;--teal:#0EA5A5;--radius:18px;--shadow:0 18px 50px rgba(0,0,0,.22);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(1000px 450px at 85% -10%,rgba(37,99,235,.15),transparent 60%),radial-gradient(800px 500px at -10% 30%,rgba(245,158,11,.07),transparent 60%),var(--bg);color:var(--text);font-family:Cairo,Calibri,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75;min-height:100vh}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    .shell{width:min(1440px,100%);margin:auto;padding:26px clamp(14px,3vw,38px) 56px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .brand-mark{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#F59E0B,#B77908);color:#171717;box-shadow:0 10px 26px rgba(245,158,11,.18);flex:none}
+    .brand-mark svg{width:26px;height:26px}
+    .brand h1{font-size:clamp(17px,2.1vw,23px);line-height:1.3;margin:0;font-weight:850;letter-spacing:-.3px}
+    .brand p{margin:5px 0 0;color:var(--muted);font-size:12px}
+    .top-badge{border:1px solid rgba(245,158,11,.28);background:rgba(245,158,11,.08);color:#FCD58A;padding:8px 13px;border-radius:999px;font-size:12px;white-space:nowrap}
+    .tabs-wrap{position:sticky;top:0;z-index:20;margin:0 0 26px;padding:8px;background:rgba(15,23,42,.88);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.17)}
+    .tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#475569 transparent;padding-bottom:1px}
+    .tab{border:1px solid transparent;background:transparent;color:#AEBBCD;padding:10px 15px;border-radius:11px;font-size:13px;font-weight:750;white-space:nowrap;transition:.2s;display:flex;align-items:center;gap:8px}
+    .tab .dot{width:7px;height:7px;border-radius:50%;background:#64748B;flex:none}
+    .tab:hover{background:rgba(148,163,184,.09);color:#fff}
+    .tab.active{background:rgba(245,158,11,.13);border-color:rgba(245,158,11,.23);color:#FCD58A}
+    .tab.active .dot{background:var(--gold);box-shadow:0 0 0 4px rgba(245,158,11,.12)}
+    .tab[data-tab="cold"].active{color:#93C5FD;background:rgba(37,99,235,.14);border-color:rgba(37,99,235,.28)}.tab[data-tab="cold"].active .dot{background:var(--blue)}
+    .tab[data-tab="warm"].active{color:#FDBA74;background:rgba(249,115,22,.13);border-color:rgba(249,115,22,.28)}.tab[data-tab="warm"].active .dot{background:var(--orange)}
+    .tab[data-tab="hot"].active{color:#FCA5A5;background:rgba(239,68,68,.13);border-color:rgba(239,68,68,.28)}.tab[data-tab="hot"].active .dot{background:var(--red)}
+    .tab[data-tab="existing"].active{color:#6EE7B7;background:rgba(16,185,129,.13);border-color:rgba(16,185,129,.28)}.tab[data-tab="existing"].active .dot{background:var(--green)}
+    .tab[data-tab="budget"].active{color:#C4B5FD;background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.3)}.tab[data-tab="budget"].active .dot{background:var(--purple)}
+    .tab[data-tab="plan"].active{color:#5EEAD4;background:rgba(14,165,165,.14);border-color:rgba(14,165,165,.3)}.tab[data-tab="plan"].active .dot{background:var(--teal)}
+    .view{display:none;animation:fadeIn .32s ease}.view.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#FCD58A;background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.18);border-radius:999px;padding:6px 11px;font-size:11px;font-weight:800;letter-spacing:.2px}
+    .eyebrow .tiny{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+    .hero{position:relative;overflow:hidden;border:1px solid rgba(245,158,11,.18);border-radius:26px;padding:clamp(26px,5vw,58px);background:linear-gradient(115deg,rgba(30,41,59,.98),rgba(23,34,53,.95) 58%,rgba(73,50,20,.38));box-shadow:var(--shadow);margin-bottom:20px}
+    .hero:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid rgba(245,158,11,.12);left:-125px;top:-170px;box-shadow:0 0 0 35px rgba(245,158,11,.025),0 0 0 75px rgba(245,158,11,.02)}
+    .hero:after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.65}
+    .hero-content{position:relative;z-index:1;max-width:780px}
+    .hero h2{font-size:clamp(30px,5vw,55px);line-height:1.22;margin:18px 0 12px;font-weight:900;letter-spacing:-1.4px}
+    .hero h2 span{color:var(--gold)}
+    .hero .lead{color:#CBD5E1;font-size:clamp(15px,2vw,19px);margin:0;max-width:650px}
+    .hero-note{display:flex;align-items:center;gap:9px;color:#D1DCE9;font-size:12px;margin-top:22px}
+    .hero-note svg{color:var(--gold);flex:none}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin:34px 0 15px}
+    .section-head h3{font-size:19px;margin:0;font-weight:850}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
+    .section-kicker{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 9px;white-space:nowrap}
+    .grid{display:grid;gap:14px}.stats-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:28px}
+    .stat-card,.card,.panel{background:linear-gradient(145deg,rgba(30,41,59,.96),rgba(23,34,53,.98));border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 26px rgba(0,0,0,.1)}
+    .stat-card{padding:19px 20px;position:relative;overflow:hidden}.stat-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;left:-38px;bottom:-53px;background:var(--accent);opacity:.11}
+    .stat-value{font-size:29px;font-weight:900;line-height:1.2;color:var(--accent)}.stat-label{margin-top:7px;color:#D5DEEA;font-weight:750;font-size:13px}.stat-sub{font-size:11px;color:var(--muted);margin-top:3px}
+    .principles{grid-template-columns:repeat(4,minmax(0,1fr))}.principle{padding:19px;position:relative;overflow:hidden;min-height:134px}.principle .stage-line{height:3px;position:absolute;top:0;right:0;left:0;background:var(--accent)}.principle .stage-name{color:var(--accent);font-size:12px;font-weight:900}.principle strong{display:block;font-size:20px;margin-top:11px}.principle p{font-size:11px;color:var(--muted);margin:7px 0 0}
+    .steps-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.step-card{padding:17px 16px;min-height:160px}.step-num{width:30px;height:30px;border-radius:10px;background:rgba(245,158,11,.13);color:#FCD58A;display:grid;place-items:center;font-weight:900;font-size:13px}.step-card h4{font-size:13px;margin:13px 0 6px}.step-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.8}
+    .notice{display:flex;gap:12px;align-items:flex-start;background:rgba(245,158,11,.075);border:1px solid rgba(245,158,11,.19);border-radius:14px;padding:14px 16px;color:#E8D4AB;font-size:12px;margin-top:18px}.notice svg{color:var(--gold);flex:none;margin-top:2px}
+    .page-title{display:flex;align-items:center;gap:14px;margin:8px 0 22px}.page-icon{width:47px;height:47px;border-radius:15px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);flex:none}.page-icon svg{width:23px;height:23px}.page-title h2{font-size:clamp(23px,3vw,31px);margin:0;font-weight:900}.page-title p{margin:3px 0 0;color:var(--muted);font-size:12px}
+    .intro-banner{padding:20px 22px;border-radius:17px;background:linear-gradient(110deg,color-mix(in srgb,var(--accent) 13%,#172235),#172235 70%);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);margin-bottom:19px}.intro-banner strong{font-size:15px;color:var(--accent)}.intro-banner p{font-size:12px;color:#D0D9E5;margin:6px 0 0;max-width:850px}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:14px 0}.card{padding:19px 20px}.card h3{font-size:14px;margin:0 0 12px;display:flex;align-items:center;gap:9px}.card h3 .bullet{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 13%,transparent)}.card p{font-size:12px;color:#C5D0DE;margin:0}.card ul{padding:0 19px 0 0;margin:0;color:#C5D0DE;font-size:12px}.card li{padding:4px 0}.card li::marker{color:var(--accent)}
+    .mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}.mini-card{background:rgba(30,41,59,.8);border:1px solid var(--line);border-radius:14px;padding:15px}.mini-card .mini-number{font-size:11px;color:var(--accent);font-weight:900}.mini-card h4{font-size:13px;margin:7px 0 5px}.mini-card p{font-size:11px;color:var(--muted);margin:0}
+    .tag{display:inline-flex;border:1px solid var(--line);background:rgba(148,163,184,.06);border-radius:999px;padding:4px 9px;font-size:10px;color:#C6D2E0;margin:3px 2px}.tag.blue{color:#93C5FD;border-color:rgba(37,99,235,.3);background:rgba(37,99,235,.1)}.tag.orange{color:#FDBA74;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.1)}.tag.red{color:#FCA5A5;border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.1)}.tag.green{color:#6EE7B7;border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.1)}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:rgba(23,34,53,.85)}table{width:100%;border-collapse:collapse;min-width:1020px}th,td{text-align:right;vertical-align:top;padding:13px 14px;border-bottom:1px solid var(--line);font-size:11px}th{color:#F5D28A;background:rgba(245,158,11,.08);font-size:11px;position:sticky;top:0}td{color:#D1DBE7;line-height:1.8}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:rgba(148,163,184,.035)}.stage-cell{font-weight:900;white-space:nowrap}.stage-cell span{display:inline-flex;align-items:center;gap:7px}.stage-cell i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+    .funnel-layout{display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.5fr);gap:18px;align-items:stretch;margin-bottom:18px}.funnel-card{padding:22px;background:linear-gradient(145deg,#19263B,#172235);border:1px solid var(--line);border-radius:18px}.funnel-card h3{font-size:14px;margin:0 0 18px}.funnel-visual{display:flex;flex-direction:column;align-items:center;gap:7px;padding:3px 0 12px}.funnel-layer{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);color:white;font-size:12px;font-weight:900;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14));transition:transform .2s}.funnel-layer:hover{transform:scale(1.025)}.funnel-layer small{font-size:11px;opacity:.9}.funnel-layer.l1{width:100%;background:linear-gradient(90deg,#1D4ED8,#3B82F6)}.funnel-layer.l2{width:82%;background:linear-gradient(90deg,#EA580C,#FB923C)}.funnel-layer.l3{width:64%;background:linear-gradient(90deg,#DC2626,#F87171)}.funnel-layer.l4{width:46%;background:linear-gradient(90deg,#059669,#34D399)}.funnel-foot{font-size:10px;color:var(--muted);text-align:center;margin-top:9px}
+    .example-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.flow-card{padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(23,34,53,.8);position:relative}.flow-card:before{content:"";position:absolute;top:0;right:0;width:100%;height:3px;background:var(--c)}.flow-card strong{display:block;color:var(--c);font-size:12px;margin-bottom:8px}.flow-card p{font-size:11px;color:#C8D3E0;margin:0}
+    .audience-card{position:relative;padding-top:18px}.audience-card .audience-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);margin-bottom:10px}.audience-card h4{font-size:13px;margin:0 0 6px}.audience-card p{font-size:11px;color:var(--muted);margin:0}.audience-card .fit{margin-top:10px;color:var(--accent);font-size:10px;font-weight:800}
+    .metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.metric{background:rgba(15,23,42,.42);border:1px solid var(--line);border-radius:12px;padding:12px}.metric strong{font-size:12px;color:var(--accent);display:block}.metric p{font-size:10px;color:var(--muted);margin:5px 0 0}
+    .timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.timeline-item{position:relative;padding:16px;border-radius:14px;background:rgba(15,23,42,.42);border:1px solid var(--line)}.timeline-item:before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:var(--accent);border-radius:14px 14px 0 0}.timeline-item .day{font-size:10px;color:var(--accent);font-weight:900}.timeline-item h4{font-size:12px;margin:7px 0}.timeline-item p{font-size:10px;color:var(--muted);margin:0}
+    .hot-phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.hot-phase{padding:17px;border-radius:15px;background:rgba(239,68,68,.055);border:1px solid rgba(239,68,68,.17)}.hot-phase .range{color:#FCA5A5;font-weight:900;font-size:13px}.hot-phase h4{font-size:13px;margin:8px 0 6px}.hot-phase p{font-size:11px;color:#C6D0DD;margin:0}
+    .budget-hero{background:linear-gradient(120deg,rgba(124,58,237,.16),rgba(30,41,59,.96));border:1px solid rgba(124,58,237,.28);padding:24px;border-radius:20px;margin-bottom:16px}.budget-hero h2{font-size:24px;margin:0}.budget-hero p{color:#C7BDF0;font-size:12px;margin:6px 0 0}.input-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:15px 0}.field{background:rgba(23,34,53,.9);border:1px solid var(--line);border-radius:15px;padding:16px}.field label{display:block;font-size:12px;color:#D6DFEA;font-weight:800;margin-bottom:9px}.field input{width:100%;background:#0F172A;border:1px solid #3A4A61;color:white;border-radius:10px;padding:12px 13px;outline:none;direction:ltr;text-align:right;font-size:18px;font-weight:800;transition:.2s}.field input:focus{border-color:#A78BFA;box-shadow:0 0 0 3px rgba(124,58,237,.15)}.field .hint{font-size:10px;color:var(--muted);margin-top:7px}.input-unit{font-size:10px;color:#A78BFA;font-weight:800}
+    .alloc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:15px 0}.alloc-card{padding:17px;border-radius:16px;background:rgba(23,34,53,.95);border:1px solid color-mix(in srgb,var(--c) 26%,transparent)}.alloc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.alloc-name{font-size:12px;color:var(--c);font-weight:900}.alloc-pct{font-size:19px;font-weight:900}.alloc-amount{font-size:21px;font-weight:900;margin:15px 0 0}.alloc-day{font-size:10px;color:var(--muted);margin-top:2px}.bar-track{height:8px;border-radius:99px;background:#0C1422;overflow:hidden;margin-top:13px}.bar-fill{height:100%;width:0;background:var(--c);border-radius:99px;transition:width .35s ease}.budget-summary{display:flex;justify-content:space-between;gap:12px;align-items:center;border-radius:13px;padding:14px 16px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);font-size:12px;color:#DDD6FE;margin:13px 0 20px}.budget-summary strong{color:#fff;font-size:15px}
+    .forecast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.forecast-card{border:1px solid var(--line);background:linear-gradient(145deg,#1D2940,#172235);border-radius:16px;padding:18px}.forecast-card .label{font-size:11px;color:var(--muted)}.forecast-card .value{font-size:25px;color:#E9D5FF;font-weight:900;margin-top:7px;direction:ltr;text-align:right}.forecast-card small{font-size:10px;color:#A5B4C7}.assumption{margin-top:15px;border:1px solid rgba(124,58,237,.24);background:rgba(124,58,237,.07);border-radius:14px;padding:15px;color:#D8CDFB;font-size:11px}.assumption strong{color:#E9D5FF}.assumption p{margin:5px 0 0;color:#B8ABD9}
+    .plan-overview{padding:23px;border:1px solid rgba(14,165,165,.25);background:linear-gradient(120deg,rgba(14,165,165,.14),rgba(23,34,53,.96));border-radius:19px;margin-bottom:18px}.plan-overview-top{display:flex;align-items:center;justify-content:space-between;gap:15px}.plan-overview h2{font-size:22px;margin:0}.plan-overview p{font-size:11px;color:#A9DAD8;margin:5px 0 0}.progress-number{font-size:28px;color:#5EEAD4;font-weight:900;direction:ltr}.progress-track{height:11px;background:#0A2028;border-radius:99px;overflow:hidden;margin-top:17px}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#0F766E,#2DD4BF);border-radius:99px;transition:width .3s ease}.plan-meta{font-size:11px;color:#B7DAD7;margin-top:9px;display:flex;justify-content:space-between;gap:10px}.week{margin:19px 0;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:rgba(23,34,53,.78)}.week-head{padding:15px 18px;background:rgba(14,165,165,.07);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.week-head h3{font-size:14px;margin:0}.week-head span{font-size:10px;color:#6EE7D7;border:1px solid rgba(14,165,165,.2);border-radius:999px;padding:4px 9px}.task-list{padding:8px 14px}.task{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:12px;padding:12px 9px;border-bottom:1px solid rgba(148,163,184,.1);border-radius:10px;transition:.2s}.task:last-child{border-bottom:0}.task:hover{background:rgba(148,163,184,.045)}.task input{appearance:none;width:19px;height:19px;border:1.5px solid #64748B;border-radius:6px;background:#0F172A;margin:3px 0 0;cursor:pointer;display:grid;place-items:center;transition:.2s}.task input:checked{background:#059669;border-color:#10B981}.task input:checked:after{content:"✓";color:white;font-size:13px;font-weight:900;line-height:1}.task-main strong{font-size:12px;display:block;color:#E4ECF5;transition:.2s}.task-main p{font-size:10px;color:var(--muted);margin:3px 0 0}.task-day{font-size:10px;color:#8FA0B4;white-space:nowrap;padding-top:2px}.task.completed{background:rgba(16,185,129,.085)}.task.completed .task-main strong{color:#6EE7B7;text-decoration:line-through;text-decoration-thickness:1px}.task.completed .task-main p{color:#8ABCA9}.task.completed .task-day{color:#6EE7B7}.plan-actions{display:flex;justify-content:flex-end;margin:14px 0}.btn{border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:rgba(148,163,184,.07);color:#D4DEEA;font-size:11px;font-weight:800;transition:.2s}.btn:hover{background:rgba(148,163,184,.13)}.btn-danger{color:#FCA5A5;border-color:rgba(239,68,68,.26);background:rgba(239,68,68,.08)}.btn-danger:hover{background:rgba(239,68,68,.15)}
+    .footer{margin-top:38px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;color:#718198;font-size:10px}.footer b{color:#AEBAC9;font-weight:700}.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.72);backdrop-filter:blur(5px);z-index:50;display:none;place-items:center;padding:18px}.modal-backdrop.show{display:grid}.modal{width:min(420px,100%);padding:22px;background:#1E293B;border:1px solid rgba(239,68,68,.28);border-radius:18px;box-shadow:var(--shadow)}.modal h3{font-size:17px;margin:0}.modal p{font-size:12px;color:var(--muted);margin:8px 0 18px}.modal-actions{display:flex;gap:9px;justify-content:flex-start}.btn-primary{background:#0F766E;border-color:#0F766E;color:white}.toast{position:fixed;bottom:22px;left:22px;z-index:60;padding:11px 15px;background:#12372F;border:1px solid rgba(16,185,129,.28);color:#A7F3D0;border-radius:12px;font-size:11px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:1050px){.steps-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.funnel-layout{grid-template-columns:1fr}.funnel-visual{max-width:440px;margin:auto;width:100%}}
+    @media(max-width:800px){.stats-grid,.principles,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.example-flow,.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.input-grid{grid-template-columns:1fr}.forecast-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.shell{padding:17px 12px 36px}.topbar{align-items:flex-start}.top-badge{font-size:10px;padding:7px 9px}.brand-mark{width:42px;height:42px}.brand p{font-size:10px}.tabs-wrap{margin-bottom:18px;padding:6px}.tab{padding:9px 11px;font-size:11px}.hero{border-radius:20px;padding:25px 20px}.hero h2{font-size:31px}.stats-grid,.principles,.steps-grid,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats-grid{gap:9px}.stat-card{padding:14px}.stat-value{font-size:24px}.stat-label{font-size:11px}.principle{padding:15px;min-height:120px}.principle strong{font-size:17px}.steps-grid{gap:9px}.step-card{padding:13px;min-height:150px}.mini-grid,.example-flow,.timeline,.hot-phases{grid-template-columns:1fr}.forecast-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.page-title{align-items:flex-start}.section-head{align-items:flex-start;flex-direction:column}.budget-summary{align-items:flex-start;flex-direction:column}.plan-overview-top{align-items:flex-start}.plan-overview h2{font-size:18px}.progress-number{font-size:24px}.task{grid-template-columns:auto 1fr;gap:10px}.task-day{grid-column:2}.footer{flex-direction:column;align-items:flex-start}.alloc-amount{font-size:18px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+    /* ===== Audience Funnel Masterplan — visual refinement layer ===== */
+    :root{
+      --bg:#0B1220; --panel:#111C2E; --panel-2:#16243A; --panel-3:#1D2D45;
+      --line:rgba(148,163,184,.17); --text:#F8FAFC; --muted:#A9B7C9;
+      --gold:#F5A623; --blue:#3984FF; --orange:#FF8A35; --red:#FF5B62;
+      --green:#20C997; --purple:#9B7BFF; --teal:#22C8C3;
+      --radius:20px; --shadow:0 20px 58px rgba(0,0,0,.28);
+    }
+    html{scroll-padding-top:104px}
+    body{
+      background:
+        radial-gradient(900px 520px at 92% -12%,rgba(37,99,235,.20),transparent 64%),
+        radial-gradient(750px 520px at -12% 38%,rgba(124,58,237,.11),transparent 62%),
+        linear-gradient(180deg,#0B1220 0%,#0D1728 52%,#0B1220 100%);
+      color:var(--text);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.8;
+      font-size:14px;letter-spacing:0;
+    }
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;
+      background-image:linear-gradient(rgba(148,163,184,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.07) 1px,transparent 1px);
+      background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+    .shell{width:min(1460px,100%);padding:24px clamp(14px,3vw,42px) 58px}
+    .topbar{min-height:66px;margin-bottom:14px;padding:3px 2px 15px;border-bottom:1px solid rgba(148,163,184,.13)}
+    .brand{gap:13px}
+    .brand-mark{width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,#FFC45C,#E99308);color:#182235;box-shadow:0 9px 30px rgba(245,158,11,.25)}
+    .brand h1{font-size:clamp(19px,2.3vw,26px);letter-spacing:-.55px}
+    .brand p{font-size:11px;color:#EAB65B;letter-spacing:.45px;font-weight:800;text-transform:uppercase;margin-top:1px}
+    .header-tools{display:flex;align-items:center;gap:10px}
+    .top-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(34,200,195,.23);background:rgba(34,200,195,.09);color:#83E8DF;padding:8px 13px;border-radius:999px;font-size:11px;font-weight:750}
+    .live-dot{width:7px;height:7px;border-radius:50%;background:#22C8A5;box-shadow:0 0 0 4px rgba(34,200,165,.12)}
+    .quick-budget{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:12px;padding:11px 15px;background:linear-gradient(135deg,#FFC04A,#F59E0B);color:#172033;font-size:12px;font-weight:900;box-shadow:0 9px 24px rgba(245,158,11,.18);transition:transform .22s,box-shadow .22s}
+    .quick-budget:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(245,158,11,.28)}
+    .tabs-wrap{position:sticky;top:8px;z-index:30;margin:0 0 28px;padding:8px;border:1px solid rgba(148,163,184,.16);border-radius:18px;background:rgba(13,23,40,.84);backdrop-filter:blur(20px);box-shadow:0 12px 34px rgba(0,0,0,.22)}
+    .tabs{gap:6px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+    .tab{min-height:42px;padding:10px 14px;border-radius:12px;color:#B6C3D4;font-size:12px;font-weight:800;transition:background .22s,color .22s,border-color .22s,transform .22s}
+    .tab:hover{background:rgba(148,163,184,.10);transform:translateY(-1px)}
+    .tab.active{background:linear-gradient(135deg,rgba(245,166,35,.18),rgba(245,166,35,.08));border-color:rgba(245,166,35,.28);color:#FFD27D;box-shadow:inset 0 0 0 1px rgba(245,166,35,.04)}
+    .view{animation:pageEnter .42s cubic-bezier(.2,.75,.25,1)}
+    @keyframes pageEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .hero{border:1px solid rgba(245,166,35,.21);border-radius:27px;padding:clamp(30px,5vw,62px);background:linear-gradient(115deg,rgba(22,36,58,.98),rgba(18,29,47,.95) 56%,rgba(69,47,18,.46));box-shadow:var(--shadow)}
+    .hero h2{font-size:clamp(34px,5vw,60px);line-height:1.35;letter-spacing:-1px}
+    .hero .lead{font-size:clamp(15px,1.6vw,18px);line-height:2;color:#D2DCE8}
+    .eyebrow{font-size:11px;letter-spacing:0;padding:7px 13px}
+    .stat-card,.card,.panel,.funnel-card,.week,.field,.alloc-card,.forecast-card{background:linear-gradient(145deg,rgba(23,37,59,.98),rgba(17,29,47,.99));border:1px solid rgba(148,163,184,.16);box-shadow:0 12px 34px rgba(0,0,0,.13)}
+    .stat-card,.card,.funnel-card,.alloc-card,.forecast-card{transition:transform .23s,border-color .23s,box-shadow .23s}
+    .stat-card:hover,.card:hover,.funnel-card:hover,.alloc-card:hover,.forecast-card:hover{transform:translateY(-3px);border-color:rgba(148,163,184,.29);box-shadow:0 18px 40px rgba(0,0,0,.20)}
+    .stat-card{padding:21px 22px;border-radius:19px}
+    .stat-value{font-size:32px;letter-spacing:-.5px}
+    .stat-label{font-size:13px}.stat-sub{font-size:11px;color:#9EADC0}
+    .principle{border-radius:18px;min-height:145px;padding:20px}
+    .principle strong{font-size:21px;letter-spacing:-.2px}
+    .steps-grid{gap:13px}.step-card{border-radius:17px;padding:18px;min-height:175px}
+    .step-card h4{font-size:13px}.step-card p{font-size:12px;line-height:1.9}
+    .section-head{margin:38px 0 17px}.section-head h3{font-size:20px}.section-head p{font-size:12px}
+    .page-title{margin:8px 0 24px}.page-title h2{font-size:clamp(25px,3vw,34px)}.page-title p{font-size:13px}
+    .page-icon{width:51px;height:51px;border-radius:16px}
+    .intro-banner{border-radius:18px;padding:22px 24px;background:linear-gradient(115deg,color-mix(in srgb,var(--accent) 16%,#142239),#142239 75%)}
+    .intro-banner strong{font-size:15px}.intro-banner p{font-size:13px;line-height:1.9;color:#D5DEEA}
+    .card{border-radius:18px;padding:21px 22px}.card h3{font-size:15px}.card p,.card ul{font-size:12.5px;line-height:1.95}
+    .mini-card,.timeline-item,.flow-card,.metric{background:rgba(10,18,31,.45);border:1px solid rgba(148,163,184,.15);border-radius:15px}
+    .mini-card h4,.timeline-item h4{font-size:13px}.mini-card p,.timeline-item p,.flow-card p,.metric p{font-size:11.5px;line-height:1.85}
+    .tag{padding:5px 10px;font-size:10px}
+    .notice{border-radius:16px;font-size:12px;line-height:1.9;background:rgba(245,166,35,.08)}
+    .funnel-layout{grid-template-columns:minmax(300px,.86fr) minmax(0,1.4fr);gap:16px}
+    .funnel-card{padding:24px;border-radius:21px;min-width:0}
+    .funnel-card h3{font-size:15px;margin-bottom:19px}
+    .funnel-visual{position:relative;gap:10px;padding:14px 7px 16px;border-radius:17px;background:radial-gradient(ellipse at center,rgba(59,130,246,.09),transparent 70%),rgba(8,16,29,.26);overflow:hidden}
+    .funnel-layer{appearance:none;border:1px solid rgba(255,255,255,.15);height:58px;cursor:pointer;clip-path:polygon(4.5% 0,95.5% 0,100% 100%,0 100%);padding:0 20px;font-family:inherit;text-align:right;filter:drop-shadow(0 8px 12px rgba(0,0,0,.22));transition:transform .24s,filter .24s;position:relative}
+    .funnel-layer span{font-size:13px}.funnel-layer small{font-size:12px;font-weight:900}
+    .funnel-layer:hover,.funnel-layer:focus-visible{transform:scale(1.035) translateY(-2px);filter:drop-shadow(0 13px 18px rgba(0,0,0,.32));outline:2px solid rgba(255,255,255,.55);outline-offset:3px}
+    .funnel-layer.l1{background:linear-gradient(105deg,#1D4ED8,#3984FF 58%,#68A5FF)}
+    .funnel-layer.l2{background:linear-gradient(105deg,#E65C12,#FF8A35 58%,#FFB06B)}
+    .funnel-layer.l3{background:linear-gradient(105deg,#D9293A,#F24C58 58%,#FF7A7F)}
+    .funnel-layer.l4{background:linear-gradient(105deg,#078B69,#13B981 58%,#4BDBA9)}
+    .funnel-foot{font-size:11px;line-height:1.8;margin-top:13px;color:#A8B7CA}
+    .table-wrap{border:1px solid rgba(148,163,184,.19);border-radius:18px;background:#111C2E;box-shadow:0 12px 34px rgba(0,0,0,.14)}
+    table{min-width:1080px}th{background:#1A2A43;color:#F6C76C;font-size:12px;padding:15px 14px;border-bottom:1px solid rgba(148,163,184,.18)}
+    td{font-size:12px;line-height:1.9;padding:14px;color:#D5DFEB;border-bottom:1px solid rgba(148,163,184,.12)}tbody tr:hover{background:rgba(148,163,184,.055)}
+    .table-wrap::-webkit-scrollbar{height:9px}.table-wrap::-webkit-scrollbar-thumb{background:#42536D;border-radius:20px}.table-wrap::-webkit-scrollbar-track{background:#101A2B;border-radius:20px}
+    .metric{padding:14px}.metric strong{font-size:13px}.metric p{font-size:11px}
+    .timeline{gap:12px}.timeline-item{padding:18px}
+    .hot-phase{border-radius:17px;padding:19px;background:linear-gradient(145deg,rgba(239,68,68,.10),rgba(23,37,59,.85));border-color:rgba(239,68,68,.20)}
+    .budget-hero{border-radius:22px;padding:27px;background:linear-gradient(120deg,rgba(124,58,237,.22),rgba(17,29,47,.98) 70%);box-shadow:var(--shadow)}
+    .budget-hero h2{font-size:27px}.budget-hero p{font-size:13px;line-height:1.9}
+    .field{border-radius:17px;padding:19px}.field label{font-size:13px}.field input{font-size:20px;padding:13px 14px;border-color:#465873;background:#0B1424;border-radius:12px}
+    .field input:focus{border-color:#A78BFA;box-shadow:0 0 0 4px rgba(124,58,237,.16)}
+    .alloc-card{border-radius:18px;padding:19px;background:linear-gradient(150deg,rgba(24,39,62,.98),rgba(15,26,43,.98))}
+    .alloc-amount{font-size:24px}.bar-track{height:10px;background:#091322}.bar-fill{box-shadow:0 0 14px color-mix(in srgb,var(--c) 40%,transparent)}
+    .budget-summary{border-radius:15px;padding:17px 19px;font-size:13px}
+    .forecast-card{border-radius:18px;padding:21px}.forecast-card .value{font-size:28px}
+    .assumption{border-radius:16px;font-size:12px;line-height:1.9}.assumption p{font-size:12px;line-height:1.9}
+    .plan-overview{border-radius:22px;padding:25px;background:linear-gradient(115deg,rgba(14,165,165,.19),rgba(17,29,47,.98) 70%);box-shadow:var(--shadow)}
+    .week{border-radius:18px;overflow:hidden}.week-head{padding:17px 20px;background:rgba(14,165,165,.10)}.week-head h3{font-size:14px}.week-head span{font-size:11px}
+    .task{padding:14px 10px;gap:14px}.task input{width:21px;height:21px}.task-main strong{font-size:13px}.task-main p{font-size:11.5px;line-height:1.8}.task-day{font-size:11px}
+    .btn{padding:10px 15px;border-radius:12px;font-size:12px}.btn-primary{background:#0D9488;border-color:#0D9488}
+    .footer{font-size:11px;line-height:1.8}
+    button:focus-visible,input:focus-visible{outline:2px solid #F5A623;outline-offset:3px}
+    .toast{font-size:12px;padding:13px 17px;border-radius:14px}
+    @media(max-width:1050px){.funnel-layout{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:800px){
+      .shell{padding:18px 16px 44px}.topbar{align-items:center}.header-tools{gap:7px}.quick-budget{padding:10px 12px}.top-badge{font-size:10px}
+      .funnel-layout{grid-template-columns:1fr}.funnel-card{padding:19px}.funnel-visual{max-width:550px;width:100%;margin:auto}
+      .stats-grid,.principles,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:620px){
+      .shell{padding:14px 12px 36px}.topbar{align-items:flex-start;flex-direction:column;gap:12px;padding-bottom:13px}
+      .brand-mark{width:44px;height:44px}.brand h1{font-size:20px}.header-tools{width:100%;justify-content:space-between}
+      .tabs-wrap{top:4px;border-radius:15px;margin-bottom:20px;padding:6px}.tabs{gap:5px}.tab{min-height:39px;padding:9px 11px;font-size:11px}
+      .hero{padding:25px 20px;border-radius:21px}.hero h2{font-size:33px}.hero .lead{font-size:14px}
+      .stats-grid,.principles,.steps-grid,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .content-grid{grid-template-columns:1fr}.mini-grid,.example-flow,.timeline,.hot-phases{grid-template-columns:1fr}
+      .forecast-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}
+      .page-title{align-items:flex-start}.section-head{align-items:flex-start;flex-direction:column}
+      .budget-summary{align-items:flex-start;flex-direction:column}.plan-overview-top{align-items:flex-start}
+      .task{grid-template-columns:auto 1fr;gap:10px}.task-day{grid-column:2}.footer{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:440px){.stats-grid,.principles,.steps-grid,.alloc-grid,.metric-grid{grid-template-columns:1fr}.stat-card{min-height:104px}.funnel-layer{height:54px}.forecast-card .value{font-size:24px}}
+    @media(max-width:760px){
+      .table-wrap{overflow:visible;border:0;background:transparent;box-shadow:none}
+      .table-wrap table,.table-wrap tbody{display:block;width:100%;min-width:0}
+      .table-wrap thead{display:none}
+      .table-wrap tbody{display:grid;gap:12px}
+      .table-wrap tr{display:block;border:1px solid rgba(148,163,184,.18);border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#17253B,#111C2E);box-shadow:0 9px 24px rgba(0,0,0,.12)}
+      .table-wrap td{display:grid;grid-template-columns:minmax(95px,.36fr) minmax(0,1fr);gap:12px;padding:11px 13px;border-bottom:1px solid rgba(148,163,184,.11);font-size:11.5px}
+      .table-wrap td:before{content:attr(data-label);font-weight:850;color:#F6C76C}
+      .table-wrap td:last-child{border-bottom:0}
+    }
+
+  </style>
+<style id="reference-inspired-design">
+/* ===== Reference-inspired visual system: dark chrome + bright content ===== */
+:root{
+  --bg:#10192D;--panel:#FFFFFF;--panel-2:#F8FAFC;--panel-3:#EEF2F7;
+  --line:#E2E8F0;--text:#101828;--muted:#64748B;
+  --gold:#F59E0B;--blue:#2563EB;--orange:#F97316;--red:#EF4444;
+  --green:#10B981;--purple:#7C3AED;--teal:#0EA5A5;
+  --radius:18px;--shadow:0 12px 34px rgba(15,23,42,.08);
+}
+html{scroll-padding-top:110px}
+body{
+  background:#10192D!important;color:#101828!important;
+  font-family:Tahoma,"Segoe UI",Arial,sans-serif!important;
+  font-size:15px!important;line-height:1.75!important;letter-spacing:0!important;
+}
+body:before{display:none!important}
+.shell{width:100%!important;max-width:none!important;padding:0 0 28px!important}
+.topbar{
+  width:min(1440px,100%);margin:0 auto 0!important;min-height:64px;padding:10px clamp(15px,3vw,36px)!important;
+  border:0!important;border-bottom:1px solid rgba(255,255,255,.10)!important;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{gap:12px!important;flex:none}
+.brand-mark{width:46px!important;height:46px!important;border-radius:15px!important;background:#F59E0B!important;color:#101828!important;box-shadow:0 8px 22px rgba(245,158,11,.19)!important;font-size:24px}
+.brand-mark svg{display:none!important}
+.brand h1{font-family:Tahoma,"Segoe UI",Arial,sans-serif!important;font-size:clamp(20px,2.4vw,27px)!important;line-height:1.2!important;font-weight:900!important;color:#fff!important;letter-spacing:0!important}
+.brand p{font-size:11px!important;font-weight:900!important;color:#F59E0B!important;letter-spacing:.3px!important;margin-top:2px!important}
+.header-tools{display:flex;align-items:center;gap:9px!important;flex-wrap:wrap}
+.header-stats{display:flex;align-items:center;gap:7px}
+.header-stats span{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:#273247;color:#E2E8F0;font-size:12px;font-weight:800;white-space:nowrap}
+.top-badge{background:#073E3C!important;border:1px solid rgba(16,185,129,.17)!important;color:#6EE7B7!important;font-size:12px!important;font-weight:800!important;padding:8px 12px!important}
+.live-dot{background:#10B981!important}
+.quick-budget{border-radius:12px!important;padding:11px 16px!important;background:#F59E0B!important;color:#111827!important;font-size:14px!important;font-weight:900!important;box-shadow:none!important}
+.quick-budget:hover{background:#FBBF24!important;transform:translateY(-2px)}
+.tabs-wrap{
+  width:100%;margin:0 0 24px!important;padding:8px clamp(12px,3vw,36px)!important;
+  border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;
+  background:#10192D!important;backdrop-filter:none!important;box-shadow:none!important;top:0!important;
+}
+.tabs{width:min(1440px,100%);margin:0 auto;display:flex;gap:8px!important;align-items:center;scrollbar-width:none!important}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  min-height:39px!important;padding:8px 15px!important;border:1px solid transparent!important;
+  border-radius:999px!important;background:#293247!important;color:#E2E8F0!important;
+  font-size:13px!important;font-weight:900!important;line-height:1.25!important;gap:7px!important;
+  transition:background .18s ease,transform .18s ease,color .18s ease!important;
+}
+.tab .dot{display:none!important}
+.tab:before{font-size:14px;line-height:1}
+.tab[data-tab="home"]:before{content:"🚀"}
+.tab[data-tab="map"]:before{content:"🔻"}
+.tab[data-tab="cold"]:before{content:"💙"}
+.tab[data-tab="warm"]:before{content:"🧡"}
+.tab[data-tab="hot"]:before{content:"🔥"}
+.tab[data-tab="existing"]:before{content:"💚"}
+.tab[data-tab="budget"]:before{content:"🧮"}
+.tab[data-tab="plan"]:before{content:"🗓️"}
+.tab:hover{background:#3A465D!important;color:#fff!important;transform:translateY(-1px)}
+.tab.active,.tab[data-tab="cold"].active,.tab[data-tab="warm"].active,.tab[data-tab="hot"].active,.tab[data-tab="existing"].active,.tab[data-tab="budget"].active,.tab[data-tab="plan"].active{
+  background:#F59E0B!important;border-color:#F59E0B!important;color:#111827!important;box-shadow:0 5px 14px rgba(245,158,11,.18)!important;
+}
+main{width:100%;margin:0 auto}
+.view{
+  display:none;width:min(1440px,100%);margin:0 auto 20px!important;padding:clamp(18px,2.6vw,30px)!important;
+  border-radius:22px!important;background:#FFFFFF!important;color:#111827!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.08)!important;animation:pageEnter .28s ease!important;
+}
+.view.active{display:block!important}
+.hero{
+  background:linear-gradient(115deg,#FFF9EB 0%,#FFFFFF 68%)!important;
+  border:1px solid #F6D79D!important;border-radius:21px!important;
+  box-shadow:0 8px 22px rgba(15,23,42,.06)!important;padding:clamp(24px,4vw,46px)!important;
+}
+.hero:before{border-color:rgba(245,158,11,.15)!important;box-shadow:0 0 0 35px rgba(245,158,11,.025),0 0 0 75px rgba(245,158,11,.018)!important}
+.hero:after{opacity:.8!important}
+.hero h2{font-family:Tahoma,"Segoe UI",Arial,sans-serif!important;font-size:clamp(31px,4.2vw,48px)!important;line-height:1.35!important;font-weight:900!important;color:#111827!important;letter-spacing:0!important}
+.hero h2 span{color:#D97706!important}
+.hero .lead{color:#475569!important;font-size:clamp(16px,1.7vw,19px)!important;line-height:1.9!important;font-weight:600}
+.hero-note{color:#475569!important;font-size:13px!important;font-weight:700}
+.eyebrow{background:#FFF1CE!important;color:#9A5B00!important;border:1px solid #F7D38A!important;font-size:12px!important;font-weight:900!important;padding:7px 13px!important}
+.eyebrow .tiny{background:#F59E0B!important}
+.section-head{margin:28px 0 14px!important;align-items:center!important}
+.section-head h3{font-family:Tahoma,"Segoe UI",Arial,sans-serif!important;color:#101828!important;font-size:21px!important;font-weight:900!important}
+.section-head p{font-size:14px!important;color:#64748B!important;font-weight:600}
+.section-kicker{color:#475569!important;background:#F8FAFC!important;border-color:#E2E8F0!important;font-size:12px!important;font-weight:800}
+.stat-card,.card,.panel,.funnel-card,.week,.field,.alloc-card,.forecast-card{
+  background:#FFFFFF!important;color:#111827!important;border:1px solid #E2E8F0!important;
+  box-shadow:0 5px 17px rgba(15,23,42,.055)!important;
+}
+.stat-card,.card,.funnel-card,.alloc-card,.forecast-card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important}
+.stat-card:hover,.card:hover,.funnel-card:hover,.alloc-card:hover,.forecast-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.09)!important;border-color:#CBD5E1!important}
+.stat-card{border-radius:17px!important;padding:19px 20px!important}
+.stat-card:after{opacity:.09!important}
+.stat-value{font-size:32px!important;font-weight:900!important;line-height:1.15!important}
+.stat-label{font-size:14px!important;color:#1E293B!important;font-weight:900!important}
+.stat-sub{font-size:12px!important;color:#64748B!important}
+.principle{border-radius:16px!important;min-height:136px!important;padding:19px!important}
+.principle .stage-name{font-size:13px!important;font-weight:900!important}
+.principle strong{font-size:21px!important;color:#111827!important;font-weight:900!important}
+.principle p{font-size:13px!important;color:#64748B!important;line-height:1.75!important}
+.steps-grid{gap:12px!important}
+.step-card{border-radius:15px!important;min-height:158px!important;padding:16px!important}
+.step-num{background:#FFF1CE!important;color:#9A5B00!important;width:34px!important;height:34px!important;font-size:14px!important}
+.step-card h4{font-size:15px!important;color:#172033!important;font-weight:900!important}
+.step-card p{font-size:13px!important;line-height:1.8!important;color:#64748B!important}
+.notice{background:#FFF8E8!important;border:1px solid #F5D99E!important;color:#684B17!important;font-size:13px!important;line-height:1.85!important;border-radius:14px!important}
+.notice b{color:#8A5600!important}
+.page-title{margin:0 0 20px!important;gap:13px!important}
+.page-title h2{font-family:Tahoma,"Segoe UI",Arial,sans-serif!important;font-size:clamp(23px,2.6vw,30px)!important;color:#111827!important;font-weight:900!important;line-height:1.35!important}
+.page-title p{font-size:14px!important;color:#64748B!important;font-weight:600}
+.page-icon{width:44px!important;height:44px!important;border-radius:13px!important}
+.intro-banner{border-radius:15px!important;padding:18px 20px!important;margin-bottom:18px!important;background:color-mix(in srgb,var(--accent) 8%,#FFFFFF)!important;border:1px solid color-mix(in srgb,var(--accent) 24%,#FFFFFF)!important}
+.intro-banner strong{font-size:16px!important;font-weight:900!important}
+.intro-banner p{font-size:14px!important;line-height:1.9!important;color:#475569!important;font-weight:600}
+.content-grid{gap:13px!important;margin:13px 0!important}
+.card{padding:18px 20px!important;border-radius:16px!important}
+.card h3{font-size:16px!important;color:#172033!important;font-weight:900!important;margin-bottom:11px!important}
+.card p,.card ul{font-size:14px!important;color:#475569!important;line-height:1.9!important;font-weight:500}
+.card li{padding:4px 0!important}
+.mini-grid{gap:12px!important;margin:14px 0!important}
+.mini-card,.timeline-item,.flow-card,.metric{background:#F8FAFC!important;border:1px solid #E2E8F0!important;border-radius:14px!important;color:#172033!important}
+.mini-card{padding:15px!important}
+.mini-card h4,.timeline-item h4{font-size:15px!important;color:#172033!important;font-weight:900!important}
+.mini-card p,.timeline-item p,.flow-card p,.metric p{font-size:13px!important;line-height:1.8!important;color:#64748B!important}
+.tag{background:#F8FAFC!important;color:#334155!important;border-color:#E2E8F0!important;font-size:11px!important;font-weight:800!important;padding:5px 10px!important}
+.tag.blue{color:#1D4ED8!important;background:#EFF6FF!important;border-color:#BFDBFE!important}
+.tag.orange{color:#C2410C!important;background:#FFF7ED!important;border-color:#FED7AA!important}
+.tag.red{color:#B91C1C!important;background:#FEF2F2!important;border-color:#FECACA!important}
+.tag.green{color:#047857!important;background:#ECFDF5!important;border-color:#A7F3D0!important}
+.table-wrap{overflow-x:auto!important;border:1px solid #E2E8F0!important;border-radius:15px!important;background:#FFFFFF!important;box-shadow:0 6px 18px rgba(15,23,42,.055)!important}
+.table-wrap table{width:100%!important;min-width:1060px!important;border-collapse:collapse!important}
+.table-wrap th{background:#10192D!important;color:#FFFFFF!important;font-size:13px!important;font-weight:900!important;padding:15px 13px!important;border-bottom:0!important}
+.table-wrap td{font-size:13px!important;line-height:1.8!important;padding:13px!important;color:#334155!important;border-bottom:1px solid #E8EDF3!important}
+.table-wrap tbody tr:hover{background:#F8FAFC!important}
+.stage-cell{font-size:13px!important;font-weight:900!important}
+.stage-cell i{width:8px!important;height:8px!important}
+.table-wrap td:before{color:#0F172A!important}
+.funnel-layout{grid-template-columns:1fr!important;gap:14px!important;margin-bottom:17px!important}
+.funnel-card{padding:21px!important;border-radius:17px!important;min-width:0!important;background:#FFFFFF!important}
+.funnel-card h3{font-size:17px!important;color:#172033!important;font-weight:900!important;margin-bottom:14px!important}
+.funnel-visual{max-width:none!important;width:100%!important;margin:0 auto!important;padding:2px 0 9px!important;gap:9px!important;background:transparent!important;border-radius:0!important}
+.funnel-layer{
+  clip-path:none!important;height:72px!important;border:0!important;border-radius:15px!important;padding:0 18px!important;
+  color:#FFFFFF!important;font-size:15px!important;font-weight:900!important;filter:none!important;
+  box-shadow:0 5px 12px rgba(15,23,42,.10)!important;transition:transform .2s ease,filter .2s ease!important;
+}
+.funnel-layer span{font-size:15px!important;font-weight:900!important}
+.funnel-layer small{font-size:14px!important;font-weight:900!important;opacity:1!important}
+.funnel-layer:hover,.funnel-layer:focus-visible{transform:translateY(-2px) scale(1.01)!important;filter:brightness(1.04)!important;outline:3px solid #CBD5E1!important;outline-offset:2px!important}
+.funnel-layer.l1{width:100%!important;background:#2563EB!important}
+.funnel-layer.l2{width:82%!important;background:#F97316!important}
+.funnel-layer.l3{width:64%!important;background:#EF4444!important}
+.funnel-layer.l4{width:46%!important;background:#10B981!important}
+.funnel-foot{font-size:12px!important;line-height:1.8!important;color:#64748B!important;margin-top:9px!important}
+.example-flow{gap:11px!important}
+.flow-card{padding:16px!important}
+.flow-card strong{font-size:14px!important}
+.audience-card{padding:18px!important}
+.audience-card .audience-icon{width:38px!important;height:38px!important;border-radius:12px!important;font-size:14px!important}
+.audience-card h4{font-size:15px!important;color:#172033!important;font-weight:900!important}
+.audience-card p{font-size:13px!important;color:#64748B!important;line-height:1.8!important}
+.audience-card .fit{font-size:12px!important;font-weight:900!important}
+.metric-grid{gap:9px!important}
+.metric{padding:13px!important}
+.metric strong{font-size:13px!important;font-weight:900!important}
+.metric p{font-size:12px!important}
+.timeline{gap:11px!important}
+.timeline-item{padding:16px!important}
+.timeline-item .day{font-size:12px!important;font-weight:900!important}
+.timeline-item h4{font-size:15px!important}
+.hot-phase{border-radius:15px!important;padding:17px!important;background:#FFF7F7!important;border:1px solid #FECACA!important}
+.hot-phase .range{color:#B91C1C!important;font-size:14px!important}
+.hot-phase h4{font-size:15px!important;color:#172033!important;font-weight:900!important}
+.hot-phase p{font-size:13px!important;color:#64748B!important;line-height:1.8!important}
+.budget-hero{background:#F5F3FF!important;border:1px solid #DDD6FE!important;border-radius:18px!important;padding:24px!important;box-shadow:none!important}
+.budget-hero h2{font-size:26px!important;color:#312E81!important;font-weight:900!important}
+.budget-hero p{font-size:14px!important;color:#5B5A82!important;line-height:1.8!important}
+.budget-hero .eyebrow{background:#EDE9FE!important;color:#5B21B6!important;border-color:#DDD6FE!important}
+.field{border-radius:15px!important;padding:17px!important;background:#F8FAFC!important;border-color:#E2E8F0!important}
+.field label{font-size:14px!important;color:#263449!important;font-weight:900!important}
+.field input{font-size:20px!important;font-weight:900!important;color:#111827!important;background:#FFFFFF!important;border:1px solid #CBD5E1!important;border-radius:11px!important;padding:12px!important}
+.field input:focus{border-color:#8B5CF6!important;box-shadow:0 0 0 4px rgba(124,58,237,.12)!important}
+.field .hint{font-size:12px!important;color:#64748B!important}
+.input-unit{font-size:11px!important;color:#6D28D9!important}
+.alloc-card{background:#FFFFFF!important;border-radius:16px!important;padding:18px!important}
+.alloc-name{font-size:14px!important;font-weight:900!important}
+.alloc-pct{font-size:21px!important;color:#172033!important}
+.alloc-amount{font-size:23px!important;color:#111827!important;font-weight:900!important}
+.alloc-day{font-size:12px!important;color:#64748B!important}
+.bar-track{height:10px!important;background:#E9EEF5!important}
+.budget-summary{background:#F5F3FF!important;border:1px solid #DDD6FE!important;color:#4C1D95!important;font-size:14px!important;border-radius:14px!important;padding:16px 18px!important}
+.budget-summary strong{color:#4C1D95!important;font-size:17px!important}
+.forecast-card{background:#FFFFFF!important;border-radius:16px!important;padding:19px!important}
+.forecast-card .label{font-size:13px!important;color:#64748B!important;font-weight:800}
+.forecast-card .value{font-size:27px!important;color:#5B21B6!important;font-weight:900!important}
+.forecast-card small{font-size:12px!important;color:#64748B!important}
+.assumption{background:#F5F3FF!important;border:1px solid #DDD6FE!important;border-radius:14px!important;padding:16px!important;color:#4C1D95!important;font-size:13px!important;line-height:1.85!important}
+.assumption strong{color:#4C1D95!important;font-size:14px!important}
+.assumption p{color:#5B5A82!important;font-size:13px!important;line-height:1.85!important}
+.plan-overview{background:#ECFEFF!important;border:1px solid #A5F3FC!important;border-radius:18px!important;padding:22px!important;box-shadow:none!important}
+.plan-overview h2{font-size:22px!important;color:#134E4A!important;font-weight:900!important}
+.plan-overview p{font-size:13px!important;color:#4B7778!important}
+.progress-number{font-size:30px!important;color:#0F766E!important}
+.progress-track{height:13px!important;background:#D5F5F2!important}
+.progress-fill{background:linear-gradient(90deg,#0D9488,#2DD4BF)!important}
+.plan-meta{font-size:13px!important;color:#3F7774!important;font-weight:800!important}
+.week{background:#FFFFFF!important;border:1px solid #E2E8F0!important;border-radius:16px!important;box-shadow:0 5px 16px rgba(15,23,42,.05)!important}
+.week-head{background:#F0FDFA!important;border-bottom:1px solid #D5F5F2!important;padding:16px 18px!important}
+.week-head h3{font-size:16px!important;color:#134E4A!important;font-weight:900!important}
+.week-head span{font-size:12px!important;color:#0F766E!important;background:#CCFBF1!important;border-color:#99F6E4!important}
+.task{padding:13px 10px!important;border-bottom:1px solid #EEF2F6!important;border-radius:10px!important;gap:12px!important}
+.task:hover{background:#F8FAFC!important}
+.task input{width:21px!important;height:21px!important;background:#FFFFFF!important;border:1.5px solid #94A3B8!important;border-radius:6px!important}
+.task input:checked{background:#059669!important;border-color:#059669!important}
+.task-main strong{font-size:14px!important;color:#172033!important;font-weight:900!important}
+.task-main p{font-size:13px!important;color:#64748B!important;line-height:1.7!important}
+.task-day{font-size:12px!important;color:#64748B!important;font-weight:800!important}
+.task.completed{background:#ECFDF5!important}
+.task.completed .task-main strong{color:#047857!important}
+.task.completed .task-main p{color:#3F8069!important}
+.task.completed .task-day{color:#047857!important}
+.btn{background:#F8FAFC!important;border:1px solid #CBD5E1!important;color:#334155!important;padding:10px 15px!important;font-size:13px!important;font-weight:900!important;border-radius:11px!important}
+.btn:hover{background:#F1F5F9!important}
+.btn-primary{background:#0F766E!important;color:#FFFFFF!important;border-color:#0F766E!important}
+.btn-danger{background:#FEF2F2!important;color:#B91C1C!important;border-color:#FECACA!important}
+.btn-danger:hover{background:#FEE2E2!important}
+.footer{width:min(1440px,100%);margin:22px auto 0!important;padding:18px clamp(15px,3vw,36px) 0!important;border-top:1px solid rgba(255,255,255,.12)!important;color:#94A3B8!important;font-size:12px!important}
+.footer b{color:#FFFFFF!important}
+.modal{background:#FFFFFF!important;color:#111827!important;border:1px solid #FECACA!important;box-shadow:0 25px 60px rgba(15,23,42,.22)!important}
+.modal h3{font-size:19px!important;color:#111827!important;font-weight:900!important}
+.modal p{font-size:14px!important;color:#475569!important;line-height:1.8!important}
+.toast{background:#064E3B!important;color:#D1FAE5!important;border:1px solid #10B981!important;font-size:13px!important}
+button:focus-visible,input:focus-visible{outline:3px solid #F59E0B!important;outline-offset:3px!important}
+@media(max-width:1050px){.funnel-layout{grid-template-columns:1fr!important}}
+@media(max-width:800px){
+  .topbar{padding:10px 16px!important}.header-tools{gap:6px!important}.header-stats span{padding:6px 9px;font-size:11px}
+  .view{padding:19px!important}.tabs-wrap{padding:8px 12px!important}
+  .funnel-layout{grid-template-columns:1fr!important}.funnel-card{padding:18px!important}
+  .stats-grid,.principles,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .table-wrap{overflow:visible!important;border:0!important;background:transparent!important;box-shadow:none!important}
+  .table-wrap table,.table-wrap tbody{display:block!important;width:100%!important;min-width:0!important}
+  .table-wrap thead{display:none!important}.table-wrap tbody{display:grid!important;gap:12px!important}
+  .table-wrap tr{display:block!important;border:1px solid #E2E8F0!important;border-radius:15px!important;overflow:hidden!important;background:#FFFFFF!important;box-shadow:0 5px 16px rgba(15,23,42,.06)!important}
+  .table-wrap td{display:grid!important;grid-template-columns:minmax(100px,.35fr) minmax(0,1fr)!important;gap:10px!important;padding:11px 13px!important;font-size:13px!important;color:#334155!important}
+  .table-wrap td:before{font-size:12px!important;color:#172033!important;font-weight:900!important}
+}
+@media(max-width:620px){
+  .topbar{align-items:flex-start!important;flex-direction:row!important;gap:9px!important}.brand-mark{width:42px!important;height:42px!important}.brand h1{font-size:19px!important}.brand p{font-size:9px!important}
+  .header-tools{width:auto!important;justify-content:flex-start!important}.header-stats,.top-badge{display:none!important}.quick-budget{padding:9px 11px!important;font-size:12px!important;white-space:nowrap}
+  .tabs-wrap{top:0!important;margin-bottom:17px!important}.tabs{gap:6px!important}.tab{min-height:38px!important;padding:8px 12px!important;font-size:12px!important}
+  .view{width:100%!important;padding:17px 14px!important;border-radius:18px!important;margin-bottom:14px!important}
+  .hero{padding:24px 18px!important;border-radius:17px!important}.hero h2{font-size:31px!important}.hero .lead{font-size:15px!important}
+  .stats-grid,.principles,.steps-grid,.alloc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stat-card{padding:14px!important}.stat-value{font-size:27px!important}.stat-label{font-size:12px!important}.stat-sub{font-size:11px!important}
+  .principle{padding:14px!important;min-height:125px!important}.principle strong{font-size:18px!important}.principle p{font-size:12px!important}
+  .steps-grid{gap:9px!important}.step-card{padding:13px!important;min-height:148px!important}.step-card h4{font-size:13px!important}.step-card p{font-size:12px!important}
+  .page-title{align-items:flex-start!important}.page-title h2{font-size:22px!important}.page-title p{font-size:12px!important}
+  .section-head{align-items:flex-start!important;flex-direction:column!important}.section-head h3{font-size:18px!important}.section-head p{font-size:12px!important}
+  .content-grid{grid-template-columns:1fr!important}.mini-grid,.example-flow,.timeline,.hot-phases{grid-template-columns:1fr!important}
+  .funnel-layer{height:62px!important}.funnel-layer span{font-size:13px!important}.funnel-layer small{font-size:13px!important}
+  .input-grid{grid-template-columns:1fr!important}.forecast-grid{grid-template-columns:1fr!important}.metric-grid{grid-template-columns:1fr 1fr!important}
+  .task{grid-template-columns:auto 1fr!important;gap:10px!important}.task-day{grid-column:2!important}.week-head{align-items:flex-start!important;flex-direction:column!important}
+  .budget-summary{align-items:flex-start!important;flex-direction:column!important}.footer{flex-direction:column!important;align-items:flex-start!important}
+}
+@media(max-width:390px){.brand h1{font-size:17px!important}.quick-budget{font-size:11px!important}.tab{padding:8px 10px!important}.stats-grid,.principles,.steps-grid,.alloc-grid,.metric-grid{grid-template-columns:1fr!important}}
+
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">🎯</div>
+      <div><h1>قمع الجمهور الاحترافي</h1><p>Audience Funnel Masterplan</p></div>
+    </div>
+    <div class="header-tools">
+      <span class="top-badge"><span class="live-dot"></span> دليل عملي للإعلانات</span>
+      <div class="header-stats"><span>4 مراحل</span><span>30 يوم</span></div>
+      <button class="quick-budget" type="button" data-go-tab="budget">احسب ميزانيتك <span aria-hidden="true">←</span></button>
+    </div>
+  </header>
+
+  <nav class="tabs-wrap" aria-label="التنقل الرئيسي">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="home" role="tab" aria-selected="true"><span class="dot"></span>البداية</button>
+      <button class="tab" data-tab="map" role="tab" aria-selected="false"><span class="dot"></span>خريطة القمع</button>
+      <button class="tab" data-tab="cold" role="tab" aria-selected="false"><span class="dot"></span>بارد Cold</button>
+      <button class="tab" data-tab="warm" role="tab" aria-selected="false"><span class="dot"></span>دافئ Warm</button>
+      <button class="tab" data-tab="hot" role="tab" aria-selected="false"><span class="dot"></span>ساخن Hot</button>
+      <button class="tab" data-tab="existing" role="tab" aria-selected="false"><span class="dot"></span>عملاء Existing</button>
+      <button class="tab" data-tab="budget" role="tab" aria-selected="false"><span class="dot"></span>حاسبة الميزانية</button>
+      <button class="tab" data-tab="plan" role="tab" aria-selected="false"><span class="dot"></span>خطة 30 يوم</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section class="view active" id="view-home" role="tabpanel">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow"><span class="tiny"></span>من الوصول إلى الشراء ثم الولاء</span>
+          <h2>متبيعش لكل الناس<br><span>بنفس الكلام</span></h2>
+          <p class="lead">قسّم جمهورك، كلم كل واحد بالرسالة الصح. الإعلان الناجح مش مجرد ميزانية أكبر؛ هو رسالة مناسبة للشخص المناسب في التوقيت المناسب.</p>
+          <div class="hero-note"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>دليل تفاعلي يساعدك على بناء القمع، توزيع الميزانية، ومتابعة التنفيذ خطوة بخطوة.</div>
+        </div>
+      </div>
+      <div class="grid stats-grid">
+        <div class="stat-card" style="--accent:var(--gold)"><div class="stat-value">4</div><div class="stat-label">مراحل أساسية</div><div class="stat-sub">من الجمهور البارد إلى العميل الحالي</div></div>
+        <div class="stat-card" style="--accent:var(--teal)"><div class="stat-value">30</div><div class="stat-label">يوم خطة تنفيذ</div><div class="stat-sub">تأسيس، إطلاق، تحسين، توسع</div></div>
+        <div class="stat-card" style="--accent:var(--purple)"><div class="stat-value">18+</div><div class="stat-label">شريحة جمهور</div><div class="stat-sub">مصادر متنوعة حسب نية العميل</div></div>
+        <div class="stat-card" style="--accent:var(--green)"><div class="stat-value">100%</div><div class="stat-label">تطبيق عملي</div><div class="stat-sub">أمثلة ورسائل ومؤشرات قياس</div></div>
+      </div>
+      <div class="section-head"><div><h3>القاعدة الذهبية</h3><p>غيّر رسالتك حسب درجة معرفة العميل بك.</p></div><span class="section-kicker">4 رسائل — 4 أهداف</span></div>
+      <div class="grid principles">
+        <article class="card principle" style="--accent:var(--blue)"><div class="stage-line"></div><span class="stage-name">01 · بارد Cold</span><strong>ادي قيمة بس</strong><p>عرّف الناس بالمشكلة والحل، من غير ضغط شراء مبكر.</p></article>
+        <article class="card principle" style="--accent:var(--orange)"><div class="stage-line"></div><span class="stage-name">02 · دافئ Warm</span><strong>ادي واطلب</strong><p>قدّم إثباتاً وفائدة، واطلب خطوة بسيطة من العميل.</p></article>
+        <article class="card principle" style="--accent:var(--red)"><div class="stage-line"></div><span class="stage-name">03 · ساخن Hot</span><strong>اكسر الاعتراض</strong><p>وضّح السعر والضمان والتفاصيل وسهّل قرار الشراء.</p></article>
+        <article class="card principle" style="--accent:var(--green)"><div class="stage-line"></div><span class="stage-name">04 · حالي Existing</span><strong>بيع باحترام</strong><p>اشكر العميل، وافهم احتياجه، وقدّم له المكمل المناسب.</p></article>
+      </div>
+      <div class="section-head"><div><h3>ابدأ في 5 خطوات</h3><p>حوّل الفكرة إلى نظام إعلاني قابل للقياس.</p></div></div>
+      <div class="grid steps-grid">
+        <article class="card step-card"><div class="step-num">01</div><h4>حدد العميل والهدف</h4><p>حدد المنتج، العميل المثالي، المشكلة التي تحلها، والنتيجة التجارية المطلوبة.</p></article>
+        <article class="card step-card"><div class="step-num">02</div><h4>جهّز القياس</h4><p>راجع Pixel وConversions API والأحداث والكتالوج عند الحاجة قبل إطلاق الحملات.</p></article>
+        <article class="card step-card"><div class="step-num">03</div><h4>ابنِ الجماهير</h4><p>أنشئ جماهير مخصصة ومتشابهة، وحدد مصدر كل جمهور ونافذة الاحتفاظ.</p></article>
+        <article class="card step-card"><div class="step-num">04</div><h4>وزّع الرسائل والميزانية</h4><p>اختر محتوى مناسباً لكل مرحلة، وقلل تداخل الجماهير بالاستبعادات.</p></article>
+        <article class="card step-card"><div class="step-num">05</div><h4>قِس وحسّن</h4><p>راجع مؤشرات كل مرحلة أسبوعياً، وانقل الميزانية للفائزين بناءً على النتائج.</p></article>
+      </div>
+      <div class="notice"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M10.3 3.9 2.8 17a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3l-7.5-13.1a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>ملاحظة مهمة:</b> نسب القمع وتوزيع الميزانية هنا نماذج تخطيطية للتوضيح، وليست ضماناً للنتائج. عدّلها حسب طبيعة المنتج والسوق وحجم البيانات الفعلية.</div></div>
+    </section>
+
+    <!-- FUNNEL MAP -->
+    <section class="view" id="view-map" role="tabpanel">
+      <div class="page-title" style="--accent:var(--gold)"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5h18l-7 7v6l-4 2v-8L3 5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div><h2>خريطة القمع التسويقي</h2><p>افهم انتقال الجمهور من الوعي إلى نية الشراء ثم تكرار الشراء.</p></div></div>
+      <div class="funnel-layout">
+        <div class="funnel-card"><h3>شكل القمع — تمثيل بصري</h3><div class="funnel-visual">
+          <button type="button" class="funnel-layer l1" data-go-tab="cold" aria-label="افتح تفاصيل الجمهور البارد"><span>بارد · Cold</span><small>100%</small></button>
+          <button type="button" class="funnel-layer l2" data-go-tab="warm" aria-label="افتح تفاصيل الجمهور الدافئ"><span>دافئ · Warm</span><small>30%</small></button>
+          <button type="button" class="funnel-layer l3" data-go-tab="hot" aria-label="افتح تفاصيل الجمهور الساخن"><span>ساخن · Hot</span><small>10%</small></button>
+          <button type="button" class="funnel-layer l4" data-go-tab="existing" aria-label="افتح تفاصيل العملاء الحاليين"><span>عملاء · Existing</span><small>3%</small></button>
+        </div><div class="funnel-foot">النسب تمثيل توضيحي لحجم الجمهور مقارنة بأعلى القمع، وليست معدلات تحويل مضمونة ولا تُجمع معاً.</div></div>
+        <div class="funnel-card"><h3>كيف تقرأ القمع؟</h3><div class="content-grid" style="grid-template-columns:1fr 1fr;margin:0">
+          <div><span class="tag blue">بارد 100%</span><p>أوسع نقطة: أشخاص جدد نريد تعريفهم بالمنتج وجذب المهتمين منهم.</p></div>
+          <div><span class="tag orange">دافئ 30%</span><p>من أظهروا تفاعلاً أو مشاهدة أو زيارة، ونحتاج إلى بناء ثقتهم.</p></div>
+          <div><span class="tag red">ساخن 10%</span><p>أصحاب نية أقوى؛ نزيل العوائق ونطلب قراراً أو تواصلاً واضحاً.</p></div>
+          <div><span class="tag green">عملاء 3%</span><p>من اشتروا بالفعل؛ نحافظ على العلاقة ونقدم لهم ما يناسبهم لاحقاً.</p></div>
+        </div></div>
+      </div>
+      <div class="section-head"><div><h3>جدول المقارنة الرئيسي</h3><p>اعتبره مرجعاً سريعاً عند بناء Ad Sets والحملات.</p></div><span class="section-kicker">توزيع ميزانية مقترح: 100%</span></div>
+      <div class="table-wrap"><table><thead><tr><th>المرحلة</th><th>مين دول؟</th><th>هدفك</th><th>الرسالة الصح</th><th>أمثلة جمهور</th><th>استبعادات</th><th>مدة الاستهداف</th><th>الميزانية</th></tr></thead><tbody>
+        <tr><td class="stage-cell"><span style="--c:var(--blue)"><i></i>بارد Cold</span></td><td>أشخاص جدد لم يتفاعلوا مع نشاطك.</td><td>الوصول واكتشاف الطلب وجذب جمهور مناسب.</td><td>تثقيف وقيمة ومقارنة، من غير ضغط بيع.</td><td>اهتمامات، Broad، Lookalike من مشترين أو زوار أو مشاهدين.</td><td>الدافئ + الساخن + العملاء الحاليون.</td><td>اكتساب مستمر مع مراجعة 7–30 يوم حسب البيانات.</td><td><b style="color:#93C5FD">40%</b></td></tr>
+        <tr><td class="stage-cell"><span style="--c:var(--orange)"><i></i>دافئ Warm</span></td><td>شاهدوا محتواك أو تفاعلوا مع الصفحة أو الحساب.</td><td>بناء الثقة ونقلهم إلى التفكير والاهتمام.</td><td>إثبات اجتماعي + فائدة + دعوة لخطوة بسيطة.</td><td>مشاهدو 50% فيديو، تفاعل الصفحة/إنستجرام، فتح نموذج، رسائل.</td><td>الساخن والعملاء الحاليون في حملات اكتساب العملاء.</td><td>14–90 يوماً حسب المصدر وحجم الجمهور.</td><td><b style="color:#FDBA74">25%</b></td></tr>
+        <tr><td class="stage-cell"><span style="--c:var(--red)"><i></i>ساخن Hot</span></td><td>أظهروا نية واضحة: زيارة منتج أو سلة أو تواصل جاد.</td><td>إغلاق البيع وإزالة الاعتراضات.</td><td>عرض واضح + سعر + ضمان + شحن أو معاينة/استشارة.</td><td>زوار المنتج، Add to Cart، Initiate Checkout، زيارات متكررة.</td><td>المشترون الحاليون إذا لم تكن الحملة لإعادة الشراء.</td><td>3–28 يوماً مع تقسيم النوافذ.</td><td><b style="color:#FCA5A5">25%</b></td></tr>
+        <tr><td class="stage-cell"><span style="--c:var(--green)"><i></i>عملاء حاليون</span></td><td>اشتروا سابقاً أو موجودون في CRM موثق.</td><td>إعادة الشراء والبيع التكميلي والولاء.</td><td>تقدير العميل + منتج مكمل مناسب + توقيت منطقي.</td><td>مشترو 30/60/90 يوماً، VIP، اشترى X.</td><td>من اشترى المنتج نفسه حديثاً أو لا يناسبه العرض.</td><td>حسب دورة الشراء: 30–180 يوماً.</td><td><b style="color:#6EE7B7">10%</b></td></tr>
+      </tbody></table></div>
+      <div class="section-head"><div><h3>مثال عملي — حملة PVC</h3><p>نفس المنتج، لكن زاوية الكلام تتغير حسب حرارة الجمهور.</p></div></div>
+      <div class="example-flow">
+        <div class="flow-card" style="--c:var(--blue)"><strong>بارد · جذب</strong><p>فيديو يشرح فرق الخامات وأخطاء اختيار PVC. الهدف تثقيف العميل من غير طلب شراء مباشر.</p></div>
+        <div class="flow-card" style="--c:var(--orange)"><strong>دافئ · ثقة</strong><p>إعلان يعرض صور أعمال ومشروعات منفذة وتفاصيل الجودة والاستخدامات.</p></div>
+        <div class="flow-card" style="--c:var(--red)"><strong>ساخن · إغلاق</strong><p>رد واضح على السعر والضمان والمواصفات، مع دعوة لمعاينة أو استشارة مجانية.</p></div>
+        <div class="flow-card" style="--c:var(--green)"><strong>عميل حالي · ولاء</strong><p>بعد شهرين، عرض منتج مكمل أو تحديث مناسب بناءً على مشترياته السابقة.</p></div>
+      </div>
+    </section>
+
+    <!-- COLD -->
+    <section class="view" id="view-cold" style="--accent:var(--blue)" role="tabpanel">
+      <div class="page-title"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M4.9 5.1l14.2 13.8M2 12h20M4.9 18.9 19.1 5.1M8 4l4 3 4-3M8 20l4-3 4 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><div><h2>الجمهور البارد <span style="color:var(--blue)">Cold</span></h2><p>ابدأ علاقة مع ناس لسه ما تعرفكش.</p></div></div>
+      <div class="intro-banner"><strong>التعريف والهدف</strong><p>جمهور لا يعرف نشاطك أو لم يتفاعل معك سابقاً. هدفك جذب أشخاص جدد مناسبين، وليس إجبارهم على الشراء من أول إعلان.</p></div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>امتى تستخدمه؟</h3><ul><li>عند إطلاق منتج أو دخول سوق جديد.</li><li>عندما تحتاج إلى توسيع الوصول وبناء جمهور جديد.</li><li>عندما تكون لديك مادة إعلانية جيدة وقياس واضح.</li><li>عند الرغبة في تغذية جماهير الدافئ والساخن بزيارات وتفاعلات جديدة.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>الرسالة الصح</h3><p>مشكلة واضحة + معلومة مفيدة + دليل أو مقارنة + دعوة خفيفة مثل: شاهد، اكتشف، أو اعرف الفرق. تجنب الضغط والخصومات المباشرة قبل بناء الثقة.</p><div style="margin-top:10px"><span class="tag blue">قيمة</span><span class="tag blue">تثقيف</span><span class="tag blue">اكتشاف</span></div></article>
+      </div>
+      <div class="section-head"><div><h3>6 جماهير باردة تستحق الاختبار</h3><p>اختبر كل مصدر على حدة لتعرف من يجلب عميلًا مناسباً، وليس مجرد تفاعل رخيص.</p></div></div>
+      <div class="grid mini-grid">
+        <article class="card audience-card"><div class="audience-icon">✦</div><h4>Lookalike للمشترين</h4><p>أشخاص مشابهون لعملاء فعليين من قائمة نظيفة ومحدثة. استخدم مشتريات حقيقية قدر الإمكان.</p><div class="fit">أفضل عند توافر بيانات شراء كافية.</div></article>
+        <article class="card audience-card"><div class="audience-icon">⌕</div><h4>Lookalike لزوار الموقع 1–3%</h4><p>مشابهون لزوار ذوي جودة. ابدأ باختبار 1% ثم وسّع إلى 2–3% إذا حافظت على الجودة.</p><div class="fit">تأكد من جودة الترافيك المصدر.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▷</div><h4>Lookalike لمشاهدي الفيديو 95%</h4><p>أشخاص يشبهون من شاهدوا معظم الفيديو؛ جودة المصدر أهم من عدد المشاهدات فقط.</p><div class="fit">استخدم فيديو واضحاً وجذاباً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◎</div><h4>الاهتمامات</h4><p>اهتمامات مرتبطة بالقطاع والاستخدام وسلوك الشراء. اختبر مجموعات منفصلة دون تضييق مبالغ فيه.</p><div class="fit">مفيد كبداية عندما تكون بياناتك محدودة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◉</div><h4>واسع Broad</h4><p>استهداف جغرافي وعمري مناسب مع ترك مساحة للخوارزمية لتتعلم من الإعلان والتحويلات.</p><div class="fit">يحتاج عرضاً واضحاً وقياساً جيداً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">✉</div><h4>Lookalike لقائمة الإيميل</h4><p>قائمة عملاء أو مهتمين لديك حق استخدام بياناتهم وبما يتوافق مع الموافقات المطلوبة. تجنب القوائم المشتراة.</p><div class="fit">نظّف البيانات قبل الرفع.</div></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>الاستبعادات</h3><p>استبعد جماهير الدافئ + الساخن + العملاء الحاليين من حملات الاكتساب قدر الإمكان؛ لتقليل تداخل الإنفاق وتجنب دفع تكلفة لجمهور يعرفك بالفعل.</p></article>
+        <article class="card"><h3><span class="bullet"></span>أمثلة إعلانات مناسبة</h3><ul><li>فيديو: «3 أخطاء بتخلي اختيار ألواح PVC قرار مكلف».</li><li>بوست/كاروسيل: «الفرق بين الخامة الأصلية والبدائل الأقل جودة».</li><li>فيديو مقارنة استخدامات ومميزات مع عرض دليل أو مشروع حقيقي.</li></ul></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>أخطاء شائعة</h3><ul><li>بيع مباشر من أول لمسة.</li><li>جمهور واسع من غير رسالة واضحة.</li><li>دمج كل الاهتمامات في مجموعة واحدة دون اختبار.</li><li>تجاهل الاستبعادات أو الحكم على الإعلان من يوم واحد.</li><li>الاعتماد على CTR وحده دون قياس جودة الزيارات.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>مؤشرات الأداء KPIs</h3><div class="metric-grid">
+          <div class="metric"><strong>Reach</strong><p>عدد الأشخاص الذين وصل إليهم الإعلان.</p></div><div class="metric"><strong>CPM</strong><p>تكلفة كل ألف ظهور.</p></div><div class="metric"><strong>Frequency</strong><p>متوسط مرات ظهور الإعلان للشخص.</p></div><div class="metric"><strong>ThruPlay</strong><p>مشاهدات الفيديو وفق تعريف المنصة.</p></div><div class="metric"><strong>CTR</strong><p>نسبة من ضغطوا إلى مرات الظهور.</p></div><div class="metric"><strong>CPC</strong><p>متوسط تكلفة النقرة.</p></div>
+        </div></article>
+      </div>
+      <div class="notice"><span style="font-size:17px;color:var(--blue)">✦</span><div><b>نصيحة محترف:</b> قيّم جودة الجمهور من سلوكه بعد المشاهدة أو الزيارة، وليس من رخص المشاهدات فقط. احتفظ بأفضل الإبداعات الإعلانية وطورها تدريجياً.</div></div>
+    </section>
+
+    <!-- WARM -->
+    <section class="view" id="view-warm" style="--accent:var(--orange)" role="tabpanel">
+      <div class="page-title"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22c4.4 0 8-3.4 8-7.7 0-2.5-1.4-4.6-3.1-6.3-.1 2.1-1.1 3.1-2 3.4C15.2 7 12.8 3.9 9.2 2c.5 4.5-1.1 6.2-2.8 8.1C4.8 12 4 13.4 4 15.2 4 19 7.5 22 12 22Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><div><h2>الجمهور الدافئ <span style="color:var(--orange)">Warm</span></h2><p>حوّل المعرفة إلى ثقة واهتمام واضح.</p></div></div>
+      <div class="intro-banner"><strong>التعريف والهدف</strong><p>أشخاص يعرفون نشاطك أو شاهدوا محتواك أو تفاعلوا مع الصفحة والحساب، لكنهم لم يصلوا بعد إلى نية شراء مؤكدة. هدفك تقوية الثقة وتحريكهم إلى الخطوة التالية.</p></div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>امتى تستخدمه؟</h3><ul><li>بعد نشر محتوى وجمع مشاهدات وتفاعلات كافية.</li><li>بعد وصول زيارات للموقع أو تفاعل مع الحساب.</li><li>عندما تريد شرح القيمة وإظهار أعمالك قبل طلب البيع.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>الرسالة الصح: ادي واطلب</h3><p>اعرض فائدة أو حالة استخدام + إثبات اجتماعي + دعوة متوسطة مثل: اطلب الكتالوج، شاهد الأعمال، أو اسأل عن التفاصيل.</p><div style="margin-top:10px"><span class="tag orange">إثبات</span><span class="tag orange">ثقة</span><span class="tag orange">CTA متوسط</span></div></article>
+      </div>
+      <div class="section-head"><div><h3>مصادر الجمهور الدافئ</h3><p>ابدأ بنوافذ مناسبة، ثم عدّلها حسب حجم الجمهور وسرعة دورة الشراء.</p></div></div>
+      <div class="grid mini-grid">
+        <article class="card audience-card"><div class="audience-icon">▷</div><h4>شاهد 50% من فيديو</h4><p>شاهد جزءاً مهماً من المحتوى، وبالتالي أبدى اهتماماً أولياً.</p><div class="fit">نافذة مقترحة: 30–90 يوماً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">f</div><h4>تفاعل مع صفحة فيسبوك</h4><p>تفاعل مع المنشورات أو الصفحة أو المحتوى خلال الفترة المحددة.</p><div class="fit">نافذة مقترحة: 30–90 يوماً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▤</div><h4>فتح نموذج Instant Form</h4><p>فتح النموذج ولم يرسله؛ يحتاج إلى رسالة تطمئنه وتزيل سبب التردد.</p><div class="fit">نافذة مقترحة: 30–60 يوماً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◎</div><h4>تفاعل مع حساب إنستجرام</h4><p>زار البروفايل أو تفاعل مع المحتوى أو الحساب وفق خيارات الجمهور المتاحة.</p><div class="fit">نافذة مقترحة: 30–90 يوماً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◌</div><h4>بدأ محادثة أو أرسل رسالة</h4><p>تواصل مع النشاط؛ افصل من طلب عرض سعر عن من أرسل استفساراً عاماً.</p><div class="fit">نافذة مقترحة: 30–60 يوماً.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▣</div><h4>تفاعل مع Event أو ويبينار</h4><p>سجل أو حضر فعالية؛ وميّز بين المسجل والحاضر ومن لم يحضر.</p><div class="fit">نافذة مقترحة: 30–90 يوماً.</div></article>
+      </div>
+      <div class="section-head"><div><h3>تسلسل فيديوهات مقترح</h3><p>قدّم المعلومة ثم الدليل ثم الدعوة، بدل تكرار الإعلان نفسه.</p></div></div>
+      <div class="timeline">
+        <article class="timeline-item"><div class="day">الفيديو 01 · تعليم</div><h4>المشكلة والفروقات</h4><p>اشرح المشكلة والأخطاء الشائعة وما الذي يجب أن ينتبه إليه المشتري.</p></article>
+        <article class="timeline-item"><div class="day">الفيديو 02 · إثبات</div><h4>مشروع أو تجربة موثقة</h4><p>اعرض مشروعاً منفذاً أو شهادة عميل أو نتيجة قابلة للتحقق.</p></article>
+        <article class="timeline-item"><div class="day">الفيديو 03 · توضيح</div><h4>المواصفات وطريقة الاختيار</h4><p>وضّح المواصفات والتركيب والضمان والاستخدامات وفق المنتج.</p></article>
+        <article class="timeline-item"><div class="day">الفيديو 04 · دعوة</div><h4>الكتالوج أو الاستشارة</h4><p>اطلب خطوة واضحة: تحميل الكتالوج أو طلب استشارة أو عرض سعر.</p></article>
+      </div>
+      <div class="notice"><span style="font-size:17px;color:var(--orange)">i</span><div>هذا تسلسل إبداعي مقترح لتنظيم المحتوى، وليس إعداداً تلقائياً مضموناً داخل مدير الإعلانات. تنفيذ التسلسل يعتمد على بناء الجماهير والحملات والقياس بشكل صحيح.</div></div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>الاستبعادات</h3><p>استبعد الساخن والعملاء الحاليين في حملات اكتساب العملاء، وانقل أصحاب النية العالية إلى حملة ساخنة بدلاً من الاستمرار في عرض محتوى تعريفي لهم.</p></article>
+        <article class="card"><h3><span class="bullet"></span>أخطاء شائعة</h3><ul><li>إعادة نفس فيديو البارد بدون إضافة جديدة.</li><li>تكرار الإعلان حتى إرهاق الجمهور.</li><li>طلب الشراء بقوة قبل بناء الثقة.</li><li>إهمال Frequency وعدم تحديث المحتوى.</li></ul></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>مؤشرات الأداء KPIs</h3><div class="metric-grid"><div class="metric"><strong>CTR</strong><p>مدى تفاعل الجمهور مع الرسالة.</p></div><div class="metric"><strong>Landing Page Views</strong><p>زيارات فعلية لصفحة الهبوط.</p></div><div class="metric"><strong>Cost per Lead</strong><p>تكلفة العميل المحتمل.</p></div><div class="metric"><strong>Form Completion</strong><p>نسبة إكمال النموذج.</p></div><div class="metric"><strong>Frequency</strong><p>معدل تكرار الظهور.</p></div><div class="metric"><strong>Lead Quality</strong><p>مدى ملاءمة وجودة الرسائل والعملاء.</p></div></div></article>
+        <article class="card"><h3><span class="bullet"></span>نصيحة محترف</h3><p>قسّم الجمهور الدافئ حسب نوع التفاعل. لا تجمع مشاهدي الفيديو مع أصحاب الرسائل في مجموعة واحدة عندما تختلف نيتهم؛ فكل فئة تحتاج إلى زاوية ورسالة تناسبها.</p></article>
+      </div>
+    </section>
+
+    <!-- HOT -->
+    <section class="view" id="view-hot" style="--accent:var(--red)" role="tabpanel">
+      <div class="page-title"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22c4.4 0 8-3.4 8-7.7 0-2.5-1.4-4.6-3.1-6.3-.1 2.1-1.1 3.1-2 3.4C15.2 7 12.8 3.9 9.2 2c.5 4.5-1.1 6.2-2.8 8.1C4.8 12 4 13.4 4 15.2 4 19 7.5 22 12 22Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 22c2.1 0 3.5-1.5 3.5-3.3 0-1-.5-2-1.4-2.8-.1 1.1-.8 1.6-1.3 1.7-.2-1.7-1-2.8-2.1-3.7.1 2.2-1.2 2.7-1.2 4.5 0 1.9 1 3.6 2.5 3.6Z" fill="currentColor" opacity=".5"/></svg></div><div><h2>الجمهور الساخن <span style="color:var(--red)">Hot</span></h2><p>النية موجودة — دورك تسهّل قرار الشراء.</p></div></div>
+      <div class="intro-banner"><strong>التعريف والهدف</strong><p>زائر أو متفاعل أظهر نية شراء واضحة: زار صفحة منتج، أضاف للسلة، طلب سعراً أو تواصل بجدية. لم يشترِ بعد؛ لذلك يجب أن تكون رسالتك مباشرة وتزيل العوائق.</p></div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>امتى تستخدمه؟</h3><ul><li>عند وجود زيارات لصفحات منتجات أو خدمات.</li><li>عند وجود Add to Cart أو بدء Checkout.</li><li>عند وجود محادثات مؤهلة أو طلبات عروض أسعار لم تُغلق.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>الرسالة الصح: اكسر الاعتراض</h3><p>جاوب السعر والمواصفات والضمان والتوصيل ومدة التنفيذ بوضوح. أضف دليلاً يرفع الثقة، وقدّم خطوة تالية محددة مثل التواصل أو المعاينة أو إتمام الطلب.</p></article>
+      </div>
+      <div class="section-head"><div><h3>الجماهير الساخنة</h3><p>كلما كانت النية أعلى، اجعل الرسالة أقرب إلى قرار الشراء.</p></div></div>
+      <div class="grid mini-grid">
+        <article class="card audience-card"><div class="audience-icon">⌕</div><h4>زار صفحة منتج محددة</h4><p>شاهد تفاصيل منتج بعينه؛ اعرض المواصفات والسعر والمميزات المرتبطة به.</p><div class="fit">نية: مرتفعة · نافذة: 7–28 يوم.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▣</div><h4>أضاف إلى السلة Add to Cart</h4><p>خطوة شراء واضحة لكنه لم يكمل؛ وضح الشحن والدفع والتوفر وأزل التعقيد.</p><div class="fit">نية: عالية جداً · نافذة: 3–14 يوم.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◷</div><h4>زوار الموقع 3 / 7 / 14 / 28 يوم</h4><p>قسّم الزيارات حسب الحداثة؛ لا تعامل زائر الأمس مثل زائر مضى عليه شهر.</p><div class="fit">الأقرب زمنياً عادةً أولوية أعلى.</div></article>
+        <article class="card audience-card"><div class="audience-icon">↗</div><h4>أعلى 10% وقت تصفح</h4><p>الأكثر تفاعلاً أو وقتاً على الموقع، إذا كان مصدر البيانات يدعم هذا التقسيم.</p><div class="fit">نية: متوسطة إلى مرتفعة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">⟳</div><h4>زار صفحة المنتج أكثر من مرة</h4><p>عودة متكررة قد تعني مقارنة أو تردداً؛ قدم مقارنة أو إجابات عن الاعتراضات.</p><div class="fit">نية: مرتفعة · نافذة: 7–14 يوم.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▯</div><h4>مستخدمو الهاتف</h4><p>شريحة اختيارية إذا كانت أدوات الاستهداف أو القياس المتاحة تسمح بها بصورة موثوقة. راجع أداء صفحة الهاتف.</p><div class="fit">لا تعتمد عليها إذا لم تتوفر إشارة موثوقة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">▤</div><h4>ويبينار أو طلب عرض سعر</h4><p>المسجل أو الحاضر أو طالب عرض السعر ولم يكمل الخطوة التجارية.</p><div class="fit">نية: مرتفعة · نافذة حسب دورة القرار.</div></article>
+      </div>
+      <div class="section-head"><div><h3>تقسيمة 3 حملات حسب حداثة النية</h3><p>اجعل الشرائح غير متداخلة قدر الإمكان باستخدام الاستبعادات المتبادلة.</p></div></div>
+      <div class="hot-phases">
+        <article class="hot-phase"><div class="range">03–07 أيام</div><h4>أعلى نية — أولوية أكبر</h4><p>ميزانية أكبر نسبياً داخل الساخن، ورسالة مباشرة عن السعر أو التوفر أو الضمان أو سرعة التواصل.</p></article>
+        <article class="hot-phase"><div class="range">07–14 يوم</div><h4>نية متوسطة — زاوية مختلفة</h4><p>استخدم مقارنة أو حالة استخدام أو شهادة عميل أو إجابة عن اعتراضات لم تُحسم.</p></article>
+        <article class="hot-phase"><div class="range">14–28 يوم</div><h4>نية أقدم — ميزانية صغيرة</h4><p>اختبر رسالة أخيرة أو محتوى جديداً من دون رفع التكرار أو استنزاف الجمهور.</p></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>DPA — Dynamic Product Ads</h3><p>اعرض نفس المنتج الذي شاهده الشخص أو منتجات مشابهة من الكتالوج بصورة ديناميكية. يتطلب ذلك كتالوجاً وPixel وأحداثاً صحيحة وربطاً تقنياً سليماً؛ الميزة لا تعمل بمجرد كتابة اسم المنتج في الإعلان.</p><div style="margin-top:9px"><span class="tag red">Catalog</span><span class="tag red">Pixel</span><span class="tag red">ViewContent</span></div></article>
+        <article class="card"><h3><span class="bullet"></span>الاستبعادات والأخطاء</h3><ul><li>استبعد المشترين من حملات الاستحواذ ومن أتم التحويل بالفعل.</li><li>قلل التداخل بين نوافذ 3–7 و7–14 و14–28 يوم.</li><li>لا تكرر الإعلان كثيراً ولا تقدم خصماً دون حساب هامش الربح.</li><li>لا تهمل سرعة الرد أو معالجة اعتراض السعر أو تتبع التحويل.</li></ul></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>مؤشرات الأداء KPIs</h3><div class="metric-grid"><div class="metric"><strong>Purchases / Leads</strong><p>عدد المشتريات أو العملاء المحتملين.</p></div><div class="metric"><strong>CPA</strong><p>تكلفة الحصول على عملية شراء أو عميل.</p></div><div class="metric"><strong>ROAS</strong><p>الإيراد المنسوب للإعلان ÷ الإنفاق.</p></div><div class="metric"><strong>Add to Cart</strong><p>عدد مرات الإضافة إلى السلة.</p></div><div class="metric"><strong>Initiate Checkout</strong><p>بدء خطوة إتمام الشراء.</p></div><div class="metric"><strong>Conversion Rate</strong><p>نسبة من نفذوا الإجراء المطلوب.</p></div></div></article>
+        <article class="card"><h3><span class="bullet"></span>نصيحة محترف</h3><p>سرعة متابعة العميل الساخن جزء من نجاح الإعلان. اربط تنبيه الرسائل بفريق المبيعات، وسجّل سبب عدم الإغلاق: سعر، مواصفات، توقيت، توصيل، أو عدم ملاءمة العميل.</p></article>
+      </div>
+    </section>
+
+    <!-- EXISTING -->
+    <section class="view" id="view-existing" style="--accent:var(--green)" role="tabpanel">
+      <div class="page-title"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6M4 12l2 6a7 7 0 0 0 12.5-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><h2>العملاء الحاليون <span style="color:var(--green)">Existing</span></h2><p>العلاقة لا تنتهي عند أول عملية بيع.</p></div></div>
+      <div class="intro-banner"><strong>التعريف والهدف</strong><p>من سبق له الشراء أو عميل مثبت في CRM. هدفك زيادة قيمة العلاقة، وإعادة الشراء أو البيع التكميلي، من غير إزعاج العميل بعروض غير مناسبة.</p></div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>امتى تستخدمه؟</h3><ul><li>بعد الشراء لتقديم الشكر وتعليمات الاستخدام.</li><li>قرب دورة إعادة الطلب أو الاستهلاك.</li><li>عند إطلاق منتج مكمل أو جديد.</li><li>لتجديد أو صيانة أو مكافأة عميل مميز.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>الرسالة الصح</h3><p>ابدأ بتقدير العميل وخدمته، ثم اعرض منتجاً مكملاً أو تجديداً له سبب واضح وتوقيت مناسب. اجعل الخصم خياراً مدروساً، وليس الرسالة الوحيدة.</p><div style="margin-top:10px"><span class="tag green">شكر</span><span class="tag green">خدمة</span><span class="tag green">Cross-sell</span><span class="tag green">ولاء</span></div></article>
+      </div>
+      <div class="section-head"><div><h3>شرائح العملاء</h3><p>قسّم قاعدة العملاء حسب تاريخ الشراء ونوع المنتجات ودورة الاستخدام.</p></div></div>
+      <div class="grid mini-grid">
+        <article class="card audience-card"><div class="audience-icon">30</div><h4>اشترى خلال 30 يوم</h4><p>ابدأ بالشكر والمتابعة وتعليمات الاستخدام. لا تعرض المنتج نفسه فوراً إلا إذا كانت دورة استهلاكه تسمح.</p><div class="fit">الهدف: رضا العميل.</div></article>
+        <article class="card audience-card"><div class="audience-icon">60</div><h4>اشترى خلال 60 يوم</h4><p>تحقق من الرضا واقترح مكملًا مناسباً بناءً على المنتج الذي اشتراه.</p><div class="fit">الهدف: مكمل أو متابعة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">90</div><h4>اشترى خلال 90 يوم</h4><p>قدّم إعادة شراء أو منتجاً مرتبطاً إذا كان التوقيت مناسباً لدورة الشراء.</p><div class="fit">الهدف: إعادة الشراء.</div></article>
+        <article class="card audience-card"><div class="audience-icon">X→Y</div><h4>اشترى X اعرض Y</h4><p>Cross-sell أو Upsell لمنتج مكمل يخدم احتياجاً حقيقياً، وليس مجرد إضافة فاتورة.</p><div class="fit">الهدف: زيادة قيمة الطلب.</div></article>
+        <article class="card audience-card"><div class="audience-icon">◷</div><h4>دورة إعادة الشراء</h4><p>ذكّر العميل في التوقيت المتوقع للاستهلاك أو إعادة الطلب وفق بياناتك الفعلية.</p><div class="fit">الهدف: توقيت مناسب.</div></article>
+        <article class="card audience-card"><div class="audience-icon">↻</div><h4>تجديد أو صيانة</h4><p>رسائل مرتبطة بالضمان أو الصيانة أو انتهاء العقد، وفق شروط المنتج والاتفاق.</p><div class="fit">الهدف: استمرار الخدمة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">✧</div><h4>منتج جديد</h4><p>إطلاق موجه حسب مشتريات سابقة واحتياجات مرتبطة، مع شرح سبب ملاءمته.</p><div class="fit">الهدف: تجربة جديدة.</div></article>
+        <article class="card audience-card"><div class="audience-icon">VIP</div><h4>عملاء VIP</h4><p>مزايا خدمة أولوية وعروض خاصة ومتابعة شخصية للعملاء الأعلى قيمة.</p><div class="fit">الهدف: الولاء والاحتفاظ.</div></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>أمثلة رسائل</h3><ul><li><b>شكر:</b> شكراً لثقتك، نتمنى أن تكون تجربتك ممتازة. هل تحتاج أي مساعدة؟</li><li><b>منتج مكمل:</b> بما إنك اشتريت X، قد يناسبك Y لأنه يساعدك في [...].</li><li><b>عرض خاص:</b> خصم 15% للعملاء السابقين كفكرة اختبارية، بعد حساب هامش الربح وشروط الجمع مع العروض.</li></ul></article>
+        <article class="card"><h3><span class="bullet"></span>الاستبعادات</h3><ul><li>استبعد من اشترى المنتج مؤخراً من إعلان نفس المنتج.</li><li>استبعد من لا يناسبه العرض أو لا تنطبق عليه شروط الخدمة.</li><li>احترم تفضيلات العميل والموافقات التسويقية اللازمة.</li></ul></article>
+      </div>
+      <div class="content-grid">
+        <article class="card"><h3><span class="bullet"></span>مؤشرات الأداء KPIs</h3><div class="metric-grid"><div class="metric"><strong>Repeat Purchase Rate</strong><p>نسبة العملاء الذين اشتروا مرة أخرى.</p></div><div class="metric"><strong>AOV</strong><p>متوسط قيمة الطلب.</p></div><div class="metric"><strong>LTV</strong><p>قيمة العميل طوال علاقته بالنشاط.</p></div><div class="metric"><strong>Revenue / Customer</strong><p>الإيراد لكل عميل.</p></div><div class="metric"><strong>Churn / Opt-out</strong><p>معدل التوقف أو إلغاء الاشتراك.</p></div><div class="metric"><strong>Complaints</strong><p>معدل الشكاوى والرسائل السلبية.</p></div></div></article>
+        <article class="card"><h3><span class="bullet"></span>نصيحة محترف</h3><p>ابدأ بالشكر والخدمة والمعلومة، ثم اعرض المكمل المناسب في توقيت منطقي. العميل الحالي أصل تجاري مهم؛ لا تستهلك ثقته بكثرة الرسائل والخصومات.</p></article>
+      </div>
+    </section>
+
+    <!-- BUDGET -->
+    <section class="view" id="view-budget" role="tabpanel">
+      <div class="budget-hero"><span class="eyebrow" style="color:#DDD6FE;background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.27)"><span class="tiny" style="background:var(--purple)"></span>حاسبة تفاعلية مباشرة</span><h2 style="margin-top:13px">وزّع ميزانيتك بذكاء</h2><p>غيّر الأرقام وشاهد توزيع الشهر واليوم والسيناريو التقديري فوراً — من غير زر حساب.</p></div>
+      <div class="section-head" style="margin-top:20px"><div><h3>مدخلات الحاسبة</h3><p>ثلاثة مدخلات أساسية تؤثر مباشرة في النتائج.</p></div><span class="section-kicker" style="color:#C4B5FD">القيم بالجنيه المصري</span></div>
+      <div class="input-grid">
+        <div class="field"><label for="monthlyBudget">إجمالي ميزانية الشهر <span class="input-unit">EGP</span></label><input id="monthlyBudget" type="number" min="0" step="100" value="10000" inputmode="decimal"><div class="hint">الميزانية الإعلانية المتاحة لمدة 30 يوماً.</div></div>
+        <div class="field"><label for="productPrice">سعر المنتج <span class="input-unit">EGP</span></label><input id="productPrice" type="number" min="0" step="50" value="3500" inputmode="decimal"><div class="hint">قيمة البيع المستخدمة لحساب الإيراد الافتراضي.</div></div>
+        <div class="field"><label for="hotConversion">نسبة تحويل الجمهور الساخن <span class="input-unit">%</span></label><input id="hotConversion" type="number" min="0" max="100" step="0.1" value="5" inputmode="decimal"><div class="hint">النسبة الفعلية أو المستهدفة من الجمهور الساخن.</div></div>
+      </div>
+      <div class="section-head"><div><h3>توزيع الميزانية</h3><p>النسب المقترحة: 40% بارد، 25% دافئ، 25% ساخن، 10% عملاء.</p></div></div>
+      <div class="grid alloc-grid">
+        <article class="alloc-card" style="--c:var(--blue)"><div class="alloc-top"><span class="alloc-name">بارد Cold</span><span class="alloc-pct">40%</span></div><div class="alloc-amount" id="coldMonth">4,000 ج.م</div><div class="alloc-day" id="coldDay">133.33 ج.م / يوم</div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div></article>
+        <article class="alloc-card" style="--c:var(--orange)"><div class="alloc-top"><span class="alloc-name">دافئ Warm</span><span class="alloc-pct">25%</span></div><div class="alloc-amount" id="warmMonth">2,500 ج.م</div><div class="alloc-day" id="warmDay">83.33 ج.م / يوم</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div></article>
+        <article class="alloc-card" style="--c:var(--red)"><div class="alloc-top"><span class="alloc-name">ساخن Hot</span><span class="alloc-pct">25%</span></div><div class="alloc-amount" id="hotMonth">2,500 ج.م</div><div class="alloc-day" id="hotDay">83.33 ج.م / يوم</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div></article>
+        <article class="alloc-card" style="--c:var(--green)"><div class="alloc-top"><span class="alloc-name">عملاء Existing</span><span class="alloc-pct">10%</span></div><div class="alloc-amount" id="existingMonth">1,000 ج.م</div><div class="alloc-day" id="existingDay">33.33 ج.م / يوم</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div></article>
+      </div>
+      <div class="budget-summary"><span>إجمالي الميزانية اليومية لكل المراحل</span><strong id="totalDaily">333.33 ج.م / يوم</strong></div>
+      <div class="section-head"><div><h3>النتيجة المتوقعة — سيناريو توضيحي</h3><p>المبيعات والإيراد وROAS تقديرات حسابية وليست وعداً بنتائج فعلية.</p></div></div>
+      <div class="grid forecast-grid">
+        <article class="forecast-card"><div class="label">عدد المشتريات التقديري</div><div class="value" id="expectedOrders">3.6</div><small>مشتريات افتراضية</small></article>
+        <article class="forecast-card"><div class="label">الإيراد المتوقع</div><div class="value" id="expectedRevenue">12,500 ج.م</div><small>عدد المشتريات × سعر المنتج</small></article>
+        <article class="forecast-card"><div class="label">العائد على الإنفاق الإعلاني ROAS</div><div class="value" id="expectedRoas">1.25×</div><small>الإيراد المتوقع ÷ إجمالي الميزانية</small></article>
+      </div>
+      <div class="assumption"><strong>افتراض المحاكاة المستخدم:</strong><p>لأغراض الحساب فقط، تكلفة اكتساب العميل المستهدفة = 20% من سعر المنتج، وخط أساس تحويل الجمهور الساخن = 5%. عدد المشتريات = (ميزانية الساخن ÷ تكلفة الاكتساب الافتراضية) × (نسبة التحويل ÷ 5%). استبدل هذا الافتراض بتكلفة الشراء الفعلية من حملاتك عند توفر البيانات؛ فالنتائج تختلف حسب القطاع والموسم وجودة الإعلان والمبيعات.</p></div>
+    </section>
+
+    <!-- PLAN -->
+    <section class="view" id="view-plan" role="tabpanel">
+      <div class="page-title" style="--accent:var(--teal)"><div class="page-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3h8M9 3v3m6-3v3M5 6h14v15H5V6Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m8 12 2 2 5-5M8 17h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h2>خطة تنفيذ 30 يوم</h2><p>حوّل الاستراتيجية إلى مهام صغيرة قابلة للمتابعة والإنجاز.</p></div></div>
+      <div class="plan-overview">
+        <div class="plan-overview-top"><div><h2>تقدم التنفيذ</h2><p>علّم المهمة عند إنجازها — تقدمك يُحفظ تلقائياً على هذا الجهاز.</p></div><div class="progress-number" id="progressPercent">0%</div></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="plan-meta"><span id="progressCount">مكتمل 0 من 18 مهمة</span><span>30 يوم · 4 أسابيع</span></div>
+      </div>
+      <div id="weeksContainer">
+        <section class="week"><div class="week-head"><h3>الأسبوع الأول — التأسيس</h3><span>الأيام 1–7 · 5 مهام</span></div><div class="task-list">
+          <label class="task"><input type="checkbox" data-task="1"><span class="task-main"><strong>تحديد المنتج والعميل المثالي وعرض القيمة</strong><p>اكتب من تبيع له، ما المشكلة التي تحلها، ولماذا يختارك العميل.</p></span><span class="task-day">اليوم 1</span></label>
+          <label class="task"><input type="checkbox" data-task="2"><span class="task-main"><strong>مراجعة Pixel وConversions API والأحداث</strong><p>راجع ViewContent وLead وPurchase، وتأكد من تطابق الأحداث وعدم تكرارها.</p></span><span class="task-day">اليوم 2</span></label>
+          <label class="task"><input type="checkbox" data-task="3"><span class="task-main"><strong>تنظيم الكتالوج وصفحات الهبوط والتواصل</strong><p>تأكد من وضوح المواصفات والسعر وطريقة التواصل وسرعة الصفحة.</p></span><span class="task-day">اليوم 3</span></label>
+          <label class="task"><input type="checkbox" data-task="4"><span class="task-main"><strong>جمع بيانات العملاء وتنظيفها وتقسيمها</strong><p>نظّف بيانات CRM، وأزل التكرار، واستخدم البيانات وفق الصلاحيات والموافقات المناسبة.</p></span><span class="task-day">اليوم 4–5</span></label>
+          <label class="task"><input type="checkbox" data-task="5"><span class="task-main"><strong>إنشاء الجماهير المخصصة ومصادر Lookalike</strong><p>جهّز جماهير المشاهدة والتفاعل والزوار والمشترين، وحدد النوافذ المناسبة.</p></span><span class="task-day">اليوم 6–7</span></label>
+        </div></section>
+        <section class="week"><div class="week-head"><h3>الأسبوع الثاني — الإطلاق</h3><span>الأيام 8–14 · 5 مهام</span></div><div class="task-list">
+          <label class="task"><input type="checkbox" data-task="6"><span class="task-main"><strong>إنتاج 2–3 فيديوهات تعليمية للجمهور البارد</strong><p>ابدأ بمشكلة واضحة، واعرض معلومة مفيدة، واستخدم دعوة خفيفة للتفاعل.</p></span><span class="task-day">اليوم 8–9</span></label>
+          <label class="task"><input type="checkbox" data-task="7"><span class="task-main"><strong>إعداد حملات Cold مع الاستبعادات</strong><p>اختبر Broad والاهتمامات وLookalike في مجموعات منفصلة قدر الإمكان.</p></span><span class="task-day">اليوم 10</span></label>
+          <label class="task"><input type="checkbox" data-task="8"><span class="task-main"><strong>إعداد جماهير Warm ونشر إثبات اجتماعي</strong><p>جهّز جماهير التفاعل والمشاهدة، واعرض مشروعات أو تقييمات موثقة.</p></span><span class="task-day">اليوم 11</span></label>
+          <label class="task"><input type="checkbox" data-task="9"><span class="task-main"><strong>إعداد حملات Hot بنوافذ 3 / 7 / 14 / 28 يوم</strong><p>قسّم أصحاب النية حسب حداثة التفاعل مع منع تداخل الجماهير قدر الإمكان.</p></span><span class="task-day">اليوم 12–13</span></label>
+          <label class="task"><input type="checkbox" data-task="10"><span class="task-main"><strong>كتابة 3 نسخ إعلانية مختلفة لكل مرحلة</strong><p>اكتب نسخة قيمة للبارد، وإثباتاً للدافئ، ومعالجة اعتراضات للساخن.</p></span><span class="task-day">اليوم 14</span></label>
+        </div></section>
+        <section class="week"><div class="week-head"><h3>الأسبوع الثالث — التحسين</h3><span>الأيام 15–21 · 4 مهام</span></div><div class="task-list">
+          <label class="task"><input type="checkbox" data-task="11"><span class="task-main"><strong>مراجعة CPM وCTR وCPC وجودة الجمهور</strong><p>قارن الأداء حسب المرحلة والجمهور والإعلان، لا حسب متوسط الحملة فقط.</p></span><span class="task-day">اليوم 15–16</span></label>
+          <label class="task"><input type="checkbox" data-task="12"><span class="task-main"><strong>إيقاف الإعلانات الضعيفة بعد بيانات كافية</strong><p>لا تتسرع؛ انتظر حجماً مناسباً من النتائج قبل الحكم على الإعلان.</p></span><span class="task-day">اليوم 17</span></label>
+          <label class="task"><input type="checkbox" data-task="13"><span class="task-main"><strong>اختبار Hook أو كرييتف جديد</strong><p>غيّر عنصراً واحداً في كل اختبار حتى تعرف سبب التحسن أو التراجع.</p></span><span class="task-day">اليوم 18–19</span></label>
+          <label class="task"><input type="checkbox" data-task="14"><span class="task-main"><strong>مراجعة سرعة الرد وجودة العملاء وأسباب الرفض</strong><p>راجع المحادثات والمكالمات وحدد الاعتراضات المتكررة ومصدر العملاء غير المناسبين.</p></span><span class="task-day">اليوم 20–21</span></label>
+        </div></section>
+        <section class="week"><div class="week-head"><h3>الأسبوع الرابع — التوسع</h3><span>الأيام 22–30 · 4 مهام</span></div><div class="task-list">
+          <label class="task"><input type="checkbox" data-task="15"><span class="task-main"><strong>نقل الميزانية تدريجياً إلى الإعلانات الفائزة</strong><p>ارفع الإنفاق بحذر مع مراقبة CPA وROAS وتكرار الظهور.</p></span><span class="task-day">اليوم 22–24</span></label>
+          <label class="task"><input type="checkbox" data-task="16"><span class="task-main"><strong>إنشاء حملات إعادة شراء وCross-sell</strong><p>استهدف العملاء الحاليين بعروض مكملة مرتبطة بالمشتريات السابقة.</p></span><span class="task-day">اليوم 25–26</span></label>
+          <label class="task"><input type="checkbox" data-task="17"><span class="task-main"><strong>توسيع الجمهور والميزانية بشكل تدريجي</strong><p>وسع الجماهير الرابحة مع متابعة التكرار وجودة المبيعات، وتجنب التوسع المفاجئ.</p></span><span class="task-day">اليوم 27–28</span></label>
+          <label class="task"><input type="checkbox" data-task="18"><span class="task-main"><strong>إعداد تقرير 30 يوم وخطة الشهر التالي</strong><p>لخّص الإنفاق والنتائج والجمهور الأفضل والاعتراضات والقرارات القادمة.</p></span><span class="task-day">اليوم 29–30</span></label>
+        </div></section>
+      </div>
+      <div class="plan-actions"><button class="btn btn-danger" id="resetPlan">إعادة تعيين التقدم</button></div>
+    </section>
+  </main>
+
+  <footer class="footer"><span><b>Audience Funnel Masterplan</b> · دليل تخطيطي وتعليمي لإدارة الجمهور والإعلانات.</span><span>بياناتك وتقدم الخطة محفوظان محلياً على هذا الجهاز.</span></footer>
+</div>
+
+<div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><h3 id="modalTitle">إعادة تعيين خطة التنفيذ؟</h3><p>سيتم إلغاء تحديد جميع المهام والعودة بالتقدم إلى 0%. لا يمكن التراجع عن هذه الخطوة.</p><div class="modal-actions"><button class="btn btn-danger" id="confirmReset">نعم، أعد التعيين</button><button class="btn" id="cancelReset">إلغاء</button></div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">تم حفظ التقدم تلقائياً.</div>
+
+<script>
+  // Tabs: local single-page navigation
+  const tabs = [...document.querySelectorAll('.tab')];
+  const views = [...document.querySelectorAll('.view')];
+  function activateTab(name, focus=false){
+    tabs.forEach(btn=>{
+      const active=btn.dataset.tab===name;
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-selected',active?'true':'false');
+      if(active && focus) btn.focus();
+    });
+    views.forEach(view=>view.classList.toggle('active',view.id===`view-${name}`));
+    const activeTab=tabs.find(btn=>btn.dataset.tab===name);
+    if(activeTab && window.innerWidth<700) activeTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  }
+  tabs.forEach((btn,index)=>btn.addEventListener('click',()=>activateTab(btn.dataset.tab)));
+  document.querySelector('.tabs').addEventListener('keydown',e=>{
+    if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+    e.preventDefault();
+    const current=tabs.findIndex(b=>b.classList.contains('active'));
+    let next=current;
+    if(e.key==='ArrowLeft') next=Math.min(tabs.length-1,current+1);
+    if(e.key==='ArrowRight') next=Math.max(0,current-1);
+    if(e.key==='Home') next=0;
+    if(e.key==='End') next=tabs.length-1;
+    activateTab(tabs[next].dataset.tab,true);
+  });
+
+
+  // Responsive table labels + convenient navigation shortcuts.
+  document.querySelectorAll('.table-wrap table').forEach(table=>{
+    const labels=[...table.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    table.querySelectorAll('tbody tr').forEach(row=>{
+      [...row.children].forEach((cell,index)=>{if(labels[index]) cell.setAttribute('data-label',labels[index]);});
+    });
+  });
+  document.querySelectorAll('[data-go-tab]').forEach(button=>{
+    const go=()=>activateTab(button.dataset.goTab);
+    button.addEventListener('click',go);
+    button.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();go();}});
+  });
+
+  // Budget calculator: updates immediately from the three primary inputs.
+  const money = value => `${Number(value||0).toLocaleString('en-US',{maximumFractionDigits:2})} ج.م`;
+  const decimal = (value,digits=2) => Number(value||0).toLocaleString('en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits});
+  const numberInputs = ['monthlyBudget','productPrice','hotConversion'].map(id=>document.getElementById(id));
+  const allocation = [
+    {key:'cold',share:.40,day:'coldDay',month:'coldMonth'},
+    {key:'warm',share:.25,day:'warmDay',month:'warmMonth'},
+    {key:'hot',share:.25,day:'hotDay',month:'hotMonth'},
+    {key:'existing',share:.10,day:'existingDay',month:'existingMonth'}
+  ];
+  function readNumber(input,min=0,max=Infinity){
+    const n=Number.parseFloat(input.value);
+    if(!Number.isFinite(n)) return min;
+    return Math.min(max,Math.max(min,n));
+  }
+  function calculateBudget(){
+    const total=readNumber(numberInputs[0]);
+    const price=readNumber(numberInputs[1]);
+    const conversion=readNumber(numberInputs[2],0,100);
+    numberInputs[2].value=conversion;
+    allocation.forEach(item=>{
+      const month=total*item.share;
+      const day=month/30;
+      document.getElementById(item.month).textContent=money(month);
+      document.getElementById(item.day).textContent=`${decimal(day)} ج.م / يوم`;
+    });
+    document.getElementById('totalDaily').textContent=`${money(total/30)} / يوم`;
+    // Explicit scenario assumption: target CPA = 20% of product price; baseline hot conversion = 5%.
+    const assumedCPA=price*.20;
+    const hotBudget=total*.25;
+    const orders=(assumedCPA>0 ? (hotBudget/assumedCPA)*(conversion/5) : 0);
+    const revenue=orders*price;
+    const roas=total>0 ? revenue/total : 0;
+    document.getElementById('expectedOrders').textContent=decimal(orders,1);
+    document.getElementById('expectedRevenue').textContent=money(revenue);
+    document.getElementById('expectedRoas').textContent=`${decimal(roas,2)}×`;
+  }
+  numberInputs.forEach(input=>input.addEventListener('input',calculateBudget));
+  calculateBudget();
+
+  // Checklist persistence in localStorage.
+  const planStorageKey='audienceFunnelMasterplan_v1';
+  const taskBoxes=[...document.querySelectorAll('[data-task]')];
+  let toastTimer;
+  function showToast(message){
+    const toast=document.getElementById('toast');
+    toast.textContent=message;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),1900);
+  }
+  function readPlan(){
+    try{const raw=localStorage.getItem(planStorageKey);return raw?JSON.parse(raw):{};}catch(e){return {};}
+  }
+  function savePlan(){
+    const state={};taskBoxes.forEach(box=>state[box.dataset.task]=box.checked);
+    try{localStorage.setItem(planStorageKey,JSON.stringify(state));}catch(e){showToast('تعذر حفظ التقدم على هذا المتصفح.');}
+  }
+  function updateProgress(){
+    const completed=taskBoxes.filter(box=>box.checked).length;
+    const percent=Math.round(completed/taskBoxes.length*100);
+    document.getElementById('progressPercent').textContent=`${percent}%`;
+    document.getElementById('progressFill').style.width=`${percent}%`;
+    document.getElementById('progressCount').textContent=`مكتمل ${completed} من ${taskBoxes.length} مهمة`;
+    taskBoxes.forEach(box=>box.closest('.task').classList.toggle('completed',box.checked));
+  }
+  const savedPlan=readPlan();
+  taskBoxes.forEach(box=>{
+    box.checked=Boolean(savedPlan[box.dataset.task]);
+    box.addEventListener('change',()=>{savePlan();updateProgress();showToast(box.checked?'تم تسجيل إنجاز المهمة.':'تم تحديث حالة المهمة.');});
+  });
+  updateProgress();
+
+  // Custom confirmation dialog for safe reset.
+  const modal=document.getElementById('confirmModal');
+  const resetBtn=document.getElementById('resetPlan');
+  const cancelBtn=document.getElementById('cancelReset');
+  const confirmBtn=document.getElementById('confirmReset');
+  function closeModal(){modal.classList.remove('show');resetBtn.focus();}
+  resetBtn.addEventListener('click',()=>{modal.classList.add('show');confirmBtn.focus();});
+  cancelBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))closeModal();});
+  confirmBtn.addEventListener('click',()=>{
+    taskBoxes.forEach(box=>box.checked=false);
+    try{localStorage.removeItem(planStorageKey);}catch(e){}
+    updateProgress();closeModal();showToast('تمت إعادة تعيين الخطة.');
+  });
+</script>
+</body>
+</html>
